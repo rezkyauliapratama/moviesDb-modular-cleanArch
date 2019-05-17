@@ -1,0 +1,15 @@
+apply from: "$rootDir/common-android-library.gradle"
+
+android {
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation Support.lifeCycleExtensions
+    implementation Support.appCompat
+
+    implementation Reactivex.kotlin
+    implementation Reactivex.android
+}

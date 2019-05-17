@@ -1,0 +1,9 @@
+apply from: "$rootDir/common-kotlin-library.gradle"
+
+dependencies {
+    //network
+    implementation Retrofit.retrofit
+    implementation Retrofit.gsonConverter
+    implementation Retrofit.adapterRxJava
+    implementation Retrofit.loggingInterceptor
+}
