@@ -21,4 +21,8 @@ android {
 
 dependencies {
     implementation Dependencies.kotlin
+
+    implementation Dagger.dagger
+    implementation Dagger.daggerCompiler
+
 }

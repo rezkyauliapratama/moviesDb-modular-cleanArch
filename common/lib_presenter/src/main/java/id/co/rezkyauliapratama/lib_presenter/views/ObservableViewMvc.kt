@@ -1,7 +1,7 @@
 package id.co.rezkyauliapratama.lib_presenter.views
 
 
-interface ObservableMvcView<ListenerType> : MvcView {
+interface ObservableViewMvc<ListenerType> : ViewMvc {
 
     fun registerListener(listener: ListenerType)
 
