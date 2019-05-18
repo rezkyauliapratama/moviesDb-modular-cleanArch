@@ -1,3 +1,4 @@
-include ':network'
-
+include Modules.featureHome
 include Modules.app
+include Modules.libNetwork
+include Modules.libPresenter

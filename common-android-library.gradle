@@ -1,0 +1,28 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion Release.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion Release.minSdkVersion
+        targetSdkVersion Release.targetSdkVersion
+        versionCode Release.versionCode
+        versionName Release.versionName
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+        }
+    }
+}
+
+dependencies {
+    implementation Dependencies.kotlin
+
+    implementation Dagger.dagger
+    implementation Dagger.daggerCompiler
+
+}
