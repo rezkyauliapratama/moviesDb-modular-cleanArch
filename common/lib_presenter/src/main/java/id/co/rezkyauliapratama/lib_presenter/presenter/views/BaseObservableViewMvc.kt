@@ -1,8 +1,9 @@
-package id.co.rezkyauliapratama.lib_presenter.views
+package id.co.rezkyauliapratama.lib_presenter.presenter.views
 
 import java.util.*
 
-abstract class BaseObservableViewMvc<ListenerType> : BaseViewMvc(), ObservableViewMvc<ListenerType> {
+abstract class BaseObservableViewMvc<ListenerType> : BaseViewMvc(),
+    ObservableViewMvc<ListenerType> {
 
     private val mListeners = HashSet<ListenerType>()
 

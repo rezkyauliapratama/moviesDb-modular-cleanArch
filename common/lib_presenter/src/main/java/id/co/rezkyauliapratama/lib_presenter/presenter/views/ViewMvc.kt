@@ -1,4 +1,4 @@
-package id.co.rezkyauliapratama.lib_presenter.views
+package id.co.rezkyauliapratama.lib_presenter.presenter.views
 
 import android.content.Context
 

@@ -1,4 +1,4 @@
-package id.co.rezkyauliapratama.lib_presenter.viewmodels
+package id.co.rezkyauliapratama.lib_presenter.presenter.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
