@@ -1,4 +1,4 @@
-package id.co.rezkyauliapratama.lib_presenter.common
+package id.co.rezkyauliapratama.lib_presenter.presenter.common
 
 sealed class ResourceState {
     object LOADING : ResourceState()

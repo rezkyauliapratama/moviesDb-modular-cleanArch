@@ -1,4 +1,4 @@
-package id.co.rezkyauliapratama.lib_presenter.controllers
+package id.co.rezkyauliapratama.lib_presenter.presenter.controllers
 
 import android.app.Activity
 import android.content.Context
@@ -6,10 +6,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import id.co.rezkyauliapratama.lib_presenter.views.ViewMvc
+import id.co.rezkyauliapratama.lib_presenter.presenter.views.ViewMvc
 import javax.inject.Inject
 import androidx.fragment.app.Fragment
-import id.co.rezkyauliapratama.lib_presenter.common.BaseViewMvcFactory
+import id.co.rezkyauliapratama.lib_presenter.presenter.common.BaseViewMvcFactory
 
 
 abstract class BaseFragment<CONTROLLER : BaseController, VIEW_MVC : ViewMvc>  : Fragment(){

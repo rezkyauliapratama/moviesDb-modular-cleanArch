@@ -1,4 +1,4 @@
-package id.co.rezkyauliapratama.lib_presenter.common
+package id.co.rezkyauliapratama.lib_presenter.presenter.common
 
 data class Resource<out T> constructor(
     val state: ResourceState,

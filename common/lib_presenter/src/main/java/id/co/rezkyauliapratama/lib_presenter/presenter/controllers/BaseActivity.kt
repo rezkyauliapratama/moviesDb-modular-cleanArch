@@ -1,9 +1,9 @@
-package id.co.rezkyauliapratama.lib_presenter.controllers
+package id.co.rezkyauliapratama.lib_presenter.presenter.controllers
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import id.co.rezkyauliapratama.lib_presenter.common.BaseViewMvcFactory
-import id.co.rezkyauliapratama.lib_presenter.views.ViewMvc
+import id.co.rezkyauliapratama.lib_presenter.presenter.common.BaseViewMvcFactory
+import id.co.rezkyauliapratama.lib_presenter.presenter.views.ViewMvc
 import javax.inject.Inject
 
 abstract class BaseActivity<CONTROLLER : BaseController, VIEW_MVC : ViewMvc> : AppCompatActivity() {
