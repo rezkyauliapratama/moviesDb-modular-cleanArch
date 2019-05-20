@@ -50,10 +50,10 @@ open class JobExecutor : ThreadExecutor {
 
             // A exception handler is created to log the exception from threads
             thread.uncaughtExceptionHandler =
-                Thread.UncaughtExceptionHandler { thread, ex ->
+                Thread.UncaughtExceptionHandler { th, ex ->
                     Log.e(
                         "JobExecutor",
-                        thread.name + " encountered an error: " + ex.message
+                        th.name + " encountered an error: " + ex.message
                     )
                 }
             return thread        }

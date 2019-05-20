@@ -15,7 +15,6 @@
  *
  */
 
-package com.stepstone.reactiveusecasessample.domain.interactor.base
 
 /**
  * Interface for a Use Case (Interactor in terms of Clean Architecture).

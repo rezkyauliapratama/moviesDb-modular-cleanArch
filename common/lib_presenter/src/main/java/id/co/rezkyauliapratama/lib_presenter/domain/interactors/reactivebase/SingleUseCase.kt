@@ -1,15 +1,14 @@
 package id.co.rezkyauliapratama.lib_presenter.domain.interactors.reactivebase
 
+import id.co.rezkyauliapratama.lib_presenter.domain.common.SchedulerTransformer
 import io.reactivex.Single
-import io.reactivex.SingleSource
-import io.reactivex.SingleTransformer
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
 
-class SchedulerTransformer<T> : SingleTransformer<T, T> {
+abstract class SingleUseCase<RESULT> {
 
-    override fun apply(upstream: Single<T>): SingleSource<T> {
-        return upstream.subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
+    abstract fun buildUseCaseSingle(data: Map<String, Any?> = emptyMap()): Single<RESULT>
+
+    fun execute(data: Map<String, Any?> = emptyMap()): Single<RESULT> {
+        return buildUseCaseSingle(data)
+            .compose(SchedulerTransformer())
     }
 }

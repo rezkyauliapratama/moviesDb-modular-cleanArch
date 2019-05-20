@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion Release.compileSdkVersion
@@ -23,6 +24,6 @@ dependencies {
     implementation Dependencies.kotlin
 
     implementation Dagger.dagger
-    implementation Dagger.daggerCompiler
+    kapt Dagger.daggerCompiler
 
 }
