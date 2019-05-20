@@ -6,4 +6,7 @@ dependencies {
     implementation Retrofit.gsonConverter
     implementation Retrofit.adapterRxJava
     implementation Retrofit.loggingInterceptor
+
+    implementation Reactivex.kotlin
+    implementation Reactivex.android
 }

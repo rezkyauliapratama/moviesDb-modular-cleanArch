@@ -1,5 +1,9 @@
 apply plugin: 'kotlin'
+apply plugin: 'kotlin-kapt'
 
 dependencies {
     implementation Dependencies.kotlin
+
+    implementation Dagger.dagger
+    kapt Dagger.daggerCompiler
 }

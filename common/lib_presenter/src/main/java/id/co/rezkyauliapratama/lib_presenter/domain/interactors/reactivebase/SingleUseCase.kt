@@ -2,8 +2,9 @@ package id.co.rezkyauliapratama.lib_presenter.domain.interactors.reactivebase
 
 import id.co.rezkyauliapratama.lib_presenter.domain.common.SchedulerTransformer
 import io.reactivex.Single
+import io.reactivex.SingleTransformer
 
-abstract class SingleUseCase<RESULT> {
+abstract class SingleUseCase<RESULT>(private val errorTransformer: SingleTransformer<in RESULT,out RESULT>) {
 
     abstract fun buildUseCaseSingle(data: Map<String, Any?> = emptyMap()): Single<RESULT>
 
