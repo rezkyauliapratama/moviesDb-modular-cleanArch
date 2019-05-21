@@ -26,6 +26,9 @@ object Version {
     const val rxandroidVersion = "2.1.0"
     const val rxbindingVersion = "2.1.1"
 
+    //json
+    const val moshiVersion = "1.8.0"
+
     //Dagger
     const val daggerVersion = "2.18"
 
@@ -59,12 +62,24 @@ object Support {
     val legacySupport = "androidx.legacy:legacy-support-v4:${Version.legacySupportVersion}"
 }
 
+object Arch {
+    val navigationFragment = "android.arch.navigation:navigation-fragment-ktx:${Version.navigationVersion}"
+    val navigationKtx = "android.arch.navigation:navigation-ui-ktx:${Version.navigationVersion}"
+}
+
 object Retrofit {
     val retrofit = "com.squareup.retrofit2:retrofit:${Version.retrofitVersion}"
-    val gsonConverter = "com.squareup.retrofit2:converter-gson:${Version.retrofitVersion}"
+    val moshiConverter = "com.squareup.retrofit2:converter-moshi:${Version.retrofitVersion}"
     val adapterRxJava = "com.squareup.retrofit2:adapter-rxjava2:${Version.retrofitVersion}"
     val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Version.okhttpLoggingVersion}"
 }
+
+object Json {
+    val moshi = "com.squareup.moshi:moshi:${Version.moshiVersion}"
+    val moshiKotlin = "com.squareup.moshi:moshi-kotlin:${Version.moshiVersion}"
+    val moshiKapt = "com.squareup.moshi:moshi-kotlin-codegen:${Version.moshiVersion}"
+}
+
 
 object Reactivex {
     val android = "io.reactivex.rxjava2:rxandroid:${Version.rxandroidVersion}"

@@ -1,6 +1,6 @@
 package id.co.rezkyauliapratama.lib_presenter.domain.interactors.reactivebase
 
-import id.co.rezkyauliapratama.lib_presenter.domain.common.SchedulerTransformer
+import id.co.rezkyauliapratama.lib_presenter.domain.common.NetworkSchedulerTransformer
 import io.reactivex.Single
 import io.reactivex.SingleTransformer
 
@@ -10,6 +10,7 @@ abstract class SingleUseCase<RESULT>(private val errorTransformer: SingleTransfo
 
     fun execute(data: Map<String, Any?> = emptyMap()): Single<RESULT> {
         return buildUseCaseSingle(data)
-            .compose(SchedulerTransformer())
+            .compose(errorTransformer)
+            .compose(NetworkSchedulerTransformer())
     }
 }

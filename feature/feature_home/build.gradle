@@ -1,6 +1,12 @@
 apply from: "$rootDir/common-android-dynamic-feature.gradle"
 
 dependencies {
+
+    implementation project(Modules.libPresenter)
+    implementation project(Modules.libNetwork)
+
     implementation Support.materialComponent
     implementation Support.appCompat
+
+    implementation Support.constraintLayout
 }

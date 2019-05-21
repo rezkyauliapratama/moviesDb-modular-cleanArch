@@ -1,6 +1,7 @@
 apply plugin: 'com.android.dynamic-feature'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion Release.compileSdkVersion
@@ -14,4 +15,14 @@ android {
 dependencies {
     implementation project(Modules.app)
     implementation Dependencies.kotlin
+
+    implementation Arch.navigationFragment
+    implementation Arch.navigationKtx
+
+    implementation Dagger.dagger
+    kapt Dagger.daggerCompiler
+
+    implementation Json.moshi
+    implementation Json.moshiKotlin
+    kapt Json.moshiKapt
 }

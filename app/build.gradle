@@ -28,6 +28,10 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation project(Modules.libPresenter)
+    implementation project(Modules.libNetwork)
+
     implementation Dependencies.kotlin
     implementation Support.appCompat
     implementation Support.core
@@ -35,5 +39,5 @@ dependencies {
     implementation Support.materialComponent
     testImplementation TestLibs.junit
     androidTestImplementation TestLibs.testRunner
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+
 }
