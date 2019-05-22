@@ -32,11 +32,29 @@ dependencies {
     implementation project(Modules.libPresenter)
     implementation project(Modules.libNetwork)
 
+    //support
     implementation Dependencies.kotlin
     implementation Support.appCompat
     implementation Support.core
     implementation Support.constraintLayout
     implementation Support.materialComponent
+
+    //network
+    implementation Retrofit.retrofit
+    implementation Retrofit.moshiConverter
+    implementation Retrofit.adapterRxJava
+    implementation Retrofit.loggingInterceptor
+    implementation Json.moshiKotlin
+
+    //reactivex
+    implementation Reactivex.kotlin
+    implementation Reactivex.android
+
+    //dagger
+    implementation Dagger.dagger
+    kapt Dagger.daggerCompiler
+
+    //unittest
     testImplementation TestLibs.junit
     androidTestImplementation TestLibs.testRunner
 

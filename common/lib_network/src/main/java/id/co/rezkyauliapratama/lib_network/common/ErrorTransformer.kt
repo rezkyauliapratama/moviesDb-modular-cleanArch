@@ -1,6 +1,6 @@
 package id.co.rezkyauliapratama.lib_network.common
 
-import com.google.gson.Gson
+import com.squareup.moshi.Moshi
 import id.co.rezkyauliapratama.lib_network.common.NetworkException.Companion.CODE_BAD_REQUEST
 import id.co.rezkyauliapratama.lib_network.common.NetworkException.Companion.CODE_FORBIDDEN
 import id.co.rezkyauliapratama.lib_network.common.NetworkException.Companion.CODE_NOT_FOUND
@@ -19,7 +19,7 @@ import java.net.UnknownHostException
 import java.net.UnknownServiceException
 import javax.inject.Inject
 
-class ErrorTransformer<T> @Inject constructor(private val gson: Gson, private val errorBody : NetworkErrorInterface) : SingleTransformer<T, T> {
+class ErrorTransformer<T> @Inject constructor(private val moshi: Moshi, private val errorBody : NetworkErrorInterface) : SingleTransformer<T, T> {
 
     override fun apply(upstream: Single<T>): SingleSource<T> {
         return upstream.onErrorResumeNext {
@@ -31,8 +31,10 @@ class ErrorTransformer<T> @Inject constructor(private val gson: Gson, private va
                         }
                     }
                     val body = it.response().errorBody()?.string()
-                    val response = gson.fromJson(body, errorBody::class.java)
-                    val message = response.getMessage()
+                    val jsonAdapter = moshi.adapter(errorBody::class.java)
+
+                    val response = body?.run { jsonAdapter.fromJson(body) }
+                    val message = response?.getMessage()
 
                     when (it.code()) {
                         CODE_BAD_REQUEST ->

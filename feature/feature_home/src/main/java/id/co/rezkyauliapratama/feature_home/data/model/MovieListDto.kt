@@ -2,18 +2,14 @@ package id.co.rezkyauliapratama.feature_home.data.model
 
 import com.squareup.moshi.Json
 
-data class ListMoviesDto(
-    @field:Json(name = "page")
-    val page: Int,
-    @field:Json(name = "results")
-    val movies: List<Movie>,
-    @field:Json(name = "total_pages")
-    val totalPages: Int,
-    @field:Json(name = "total_results")
-    val totalResults: Int
+class ListMoviesDto(
+    @field:Json(name = "page") var page: Int,
+    @field:Json(name = "results") val moviesDto: List<MovieDtoBean>,
+    @field:Json(name = "total_pages") val totalPages: Int,
+    @field:Json(name = "total_results") val totalResults: Int
 )
 
-data class Movie(
+class MovieDtoBean(
     @field:Json(name = "adult")
     val adult: Boolean,
     @field:Json(name = "backdrop_path")

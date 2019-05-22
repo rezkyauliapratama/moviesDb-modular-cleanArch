@@ -16,11 +16,11 @@ sealed class NetworkException(private val msg: String?) : Exception() {
     override val message: String?
         get() = msg
 
-    class BadRequestException(msg : String) : NetworkException(msg)
-    class NotFoundException(msg : String) : NetworkException(msg)
-    class ForbiddenException(msg : String) : NetworkException(msg)
-    class ServerException(msg : String) : NetworkException(msg)
-    class UnauthorizedException(msg : String) : NetworkException(msg)
-    class UnprocessableException(msg : String) : NetworkException(msg)
-    class UnknownException(msg : String) : NetworkException(msg)
+    class BadRequestException(msg : String?) : NetworkException(msg)
+    class NotFoundException(msg : String?) : NetworkException(msg)
+    class ForbiddenException(msg : String?) : NetworkException(msg)
+    class ServerException(msg : String?) : NetworkException(msg)
+    class UnauthorizedException(msg : String?) : NetworkException(msg)
+    class UnprocessableException(msg : String?) : NetworkException(msg)
+    class UnknownException(msg : String?) : NetworkException(msg)
 }

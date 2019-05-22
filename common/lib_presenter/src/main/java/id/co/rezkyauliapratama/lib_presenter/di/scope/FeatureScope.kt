@@ -1,4 +1,4 @@
-package id.co.rezkyauliapratama.lib_presenter.di
+package id.co.rezkyauliapratama.lib_presenter.di.scope
 
 import javax.inject.Scope
 

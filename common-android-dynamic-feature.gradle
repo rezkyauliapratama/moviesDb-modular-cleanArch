@@ -14,15 +14,29 @@ android {
 
 dependencies {
     implementation project(Modules.app)
-    implementation Dependencies.kotlin
 
+    //support
+    implementation Dependencies.kotlin
     implementation Arch.navigationFragment
     implementation Arch.navigationKtx
 
+    //DI
     implementation Dagger.dagger
     kapt Dagger.daggerCompiler
 
+    //json adapter
     implementation Json.moshi
     implementation Json.moshiKotlin
     kapt Json.moshiKapt
+
+    //network
+    implementation Retrofit.retrofit
+    implementation Retrofit.moshiConverter
+    implementation Retrofit.adapterRxJava
+    implementation Retrofit.loggingInterceptor
+    implementation Json.moshiKotlin
+
+    //reactivex
+    implementation Reactivex.kotlin
+    implementation Reactivex.android
 }
