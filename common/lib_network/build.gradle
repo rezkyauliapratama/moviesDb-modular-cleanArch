@@ -10,4 +10,7 @@ dependencies {
 
     implementation Reactivex.kotlin
     implementation Reactivex.android
+
+    implementation Koin.android
+    implementation Koin.androidScope
 }

@@ -32,6 +32,9 @@ object Version {
     //Dagger
     const val daggerVersion = "2.18"
 
+    //Dependency Injection
+    const val koin = "2.0.0-GA4"
+
     //Networking
     const val retrofitVersion = "2.4.0"
     const val okhttpLoggingVersion = "3.11.0"
@@ -51,6 +54,13 @@ object Version {
 
 object Dependencies {
     val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Version.kotlinVersion}"
+}
+
+object Koin {
+    val core = "org.koin:koin-core:${Version.koin}"
+    val android = "org.koin:koin-android:${Version.koin}"
+    val androidScope = "org.koin:koin-androidx-scope:${Version.koin}"
+    val androidViewModel = "org.koin:koin-androidx-viewmodel:${Version.koin}"
 }
 
 object Support {

@@ -23,7 +23,8 @@ android {
 dependencies {
     implementation Dependencies.kotlin
 
-    implementation Dagger.dagger
-    kapt Dagger.daggerCompiler
-
+    //dependency injection
+    implementation Koin.core
+    implementation Koin.android
+    implementation Koin.androidScope
 }

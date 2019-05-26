@@ -4,14 +4,12 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import id.co.rezkyauliapratama.lib_presenter.presenter.common.BaseViewMvcFactory
 import id.co.rezkyauliapratama.lib_presenter.presenter.views.ViewMvc
-import javax.inject.Inject
+import org.koin.core.KoinComponent
 
-abstract class BaseActivity<CONTROLLER : BaseController, VIEW_MVC : ViewMvc> : AppCompatActivity() {
+abstract class BaseActivity<CONTROLLER : BaseController, VIEW_MVC : ViewMvc> : AppCompatActivity(), KoinComponent {
 
-    @Inject
     lateinit var viewMvcFactory: BaseViewMvcFactory
 
-    @Inject
     lateinit var mController: CONTROLLER
 
     lateinit var mViewMvc: VIEW_MVC

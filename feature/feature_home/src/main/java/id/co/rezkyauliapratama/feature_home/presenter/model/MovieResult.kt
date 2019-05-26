@@ -1,14 +1,11 @@
-package id.co.rezkyauliapratama.feature_home.domain.model
+package id.co.rezkyauliapratama.feature_home.presenter.model
 
-data class Movie(
-    val backdropPath: String,
+data class PopularMovieView (
     val genreIds: List<Int>,
     val originalTitle: String,
     val popularity: Double,
-    val overview: String,
     val posterPath: String,
     val releaseDate: String,
-    val video: Boolean,
     val voteAverage: Double,
     val voteCount: Int
 )

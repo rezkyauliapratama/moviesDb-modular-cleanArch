@@ -6,15 +6,14 @@ import io.reactivex.Single
 import io.reactivex.SingleSource
 import io.reactivex.SingleTransformer
 import io.reactivex.schedulers.Schedulers
-import javax.inject.Inject
+import org.koin.core.KoinComponent
+import org.koin.core.inject
 
-class NetworkSchedulerTransformer<T> : SingleTransformer<T, T> {
+class NetworkSchedulerTransformer<T> : SingleTransformer<T, T>, KoinComponent {
 
-    @Inject
-    lateinit var threadExecutor: ThreadExecutor
+    private val threadExecutor: ThreadExecutor by inject()
 
-    @Inject
-    lateinit var postExecutionThread: PostExecutionThread
+    private val postExecutionThread: PostExecutionThread by inject()
 
     override fun apply(upstream: Single<T>): SingleSource<T> {
         return upstream.subscribeOn(Schedulers.from(threadExecutor))

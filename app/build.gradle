@@ -50,9 +50,11 @@ dependencies {
     implementation Reactivex.kotlin
     implementation Reactivex.android
 
-    //dagger
-    implementation Dagger.dagger
-    kapt Dagger.daggerCompiler
+    //dependency injection
+    implementation Koin.core
+    implementation Koin.android
+    implementation Koin.androidScope
+    implementation Koin.androidViewModel
 
     //unittest
     testImplementation TestLibs.junit

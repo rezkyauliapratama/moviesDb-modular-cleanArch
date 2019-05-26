@@ -7,17 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import id.co.rezkyauliapratama.lib_presenter.presenter.views.ViewMvc
-import javax.inject.Inject
 import androidx.fragment.app.Fragment
 import id.co.rezkyauliapratama.lib_presenter.presenter.common.BaseViewMvcFactory
 
 
 abstract class BaseFragment<CONTROLLER : BaseController, VIEW_MVC : ViewMvc>  : Fragment(){
 
-    @Inject
     lateinit var viewMvcFactory: BaseViewMvcFactory
 
-    @Inject
     lateinit var mController: CONTROLLER
 
     lateinit var mViewMvc: VIEW_MVC

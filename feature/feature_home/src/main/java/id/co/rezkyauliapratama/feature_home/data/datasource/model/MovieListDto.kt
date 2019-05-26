@@ -1,6 +1,7 @@
 package id.co.rezkyauliapratama.feature_home.data.model
 
 import com.squareup.moshi.Json
+import id.co.rezkyauliapratama.feature_home.domain.model.Movie
 
 class ListMoviesDto(
     @field:Json(name = "page") var page: Int,
@@ -39,3 +40,19 @@ class MovieDtoBean(
     @field:Json(name = "vote_count")
     val voteCount: Int
 )
+
+
+fun MovieDtoBean.mapToDomain(): Movie = Movie(
+    backdropPath = backdropPath,
+    genreIds = genreIds,
+    originalTitle = originalTitle,
+    overview = overview,
+    popularity = popularity,
+    posterPath = posterPath,
+    releaseDate = releaseDate,
+    video = video,
+    voteAverage = voteAverage,
+    voteCount = voteCount
+)
+
+fun List<MovieDtoBean>.mapToDomain(): List<Movie> = map { it.mapToDomain() }

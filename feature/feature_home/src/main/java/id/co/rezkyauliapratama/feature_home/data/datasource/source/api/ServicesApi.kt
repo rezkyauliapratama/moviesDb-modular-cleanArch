@@ -1,4 +1,4 @@
-package id.co.rezkyauliapratama.feature_home.data.source
+package id.co.rezkyauliapratama.feature_home.data.source.api
 
 import id.co.rezkyauliapratama.feature_home.data.model.ListMoviesDto
 import io.reactivex.Single
@@ -9,11 +9,8 @@ interface MoviesApi {
 
     @GET("/movie/popular")
     fun getPopularMovies(
-        @Query("pageNum") pageNum: Int?,
-        @Query("pageSize") pageSize: Int?,
-        @Query("month") month: Int?,
-        @Query("year") year: Int?,
-        @Query("status") status: String?
+        @Query("api_key") apiKey: String,
+        @Query("page") pageNumber: Int?
     ): Single<ListMoviesDto>
 
 }

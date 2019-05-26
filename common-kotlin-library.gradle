@@ -4,6 +4,5 @@ apply plugin: 'kotlin-kapt'
 dependencies {
     implementation Dependencies.kotlin
 
-    implementation Dagger.dagger
-    kapt Dagger.daggerCompiler
+    implementation Koin.core
 }

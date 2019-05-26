@@ -12,14 +12,18 @@ import id.co.rezkyauliapratama.lib_network.common.`interface`.NetworkErrorInterf
 import io.reactivex.Single
 import io.reactivex.SingleSource
 import io.reactivex.SingleTransformer
+import org.koin.core.KoinComponent
+import org.koin.core.inject
 import retrofit2.HttpException
 import java.net.ConnectException
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 import java.net.UnknownServiceException
-import javax.inject.Inject
 
-class ErrorTransformer<T> @Inject constructor(private val moshi: Moshi, private val errorBody : NetworkErrorInterface) : SingleTransformer<T, T> {
+class ErrorTransformer<T> : SingleTransformer<T, T>, KoinComponent {
+
+    private val moshi: Moshi by inject()
+    private val errorBody : NetworkErrorInterface by inject()
 
     override fun apply(upstream: Single<T>): SingleSource<T> {
         return upstream.onErrorResumeNext {

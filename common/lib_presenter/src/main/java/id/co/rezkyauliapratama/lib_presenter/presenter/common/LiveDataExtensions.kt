@@ -18,6 +18,14 @@ fun <T> MutableLiveData<Resource<T>>.setLoading() =
         )
     )
 
+fun <T> MutableLiveData<Resource<T>>.setEmpty() =
+    postValue(
+        Resource(
+            ResourceState.EMPTY,
+            null
+        )
+    )
+
 fun <T> MutableLiveData<Resource<T>>.setError(throwable: Throwable? = null) =
     postValue(
         Resource(

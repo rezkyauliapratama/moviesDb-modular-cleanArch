@@ -20,9 +20,11 @@ dependencies {
     implementation Arch.navigationFragment
     implementation Arch.navigationKtx
 
-    //DI
-    implementation Dagger.dagger
-    kapt Dagger.daggerCompiler
+    //dependency injection
+    implementation Koin.core
+    implementation Koin.android
+    implementation Koin.androidScope
+    implementation Koin.androidViewModel
 
     //json adapter
     implementation Json.moshi
