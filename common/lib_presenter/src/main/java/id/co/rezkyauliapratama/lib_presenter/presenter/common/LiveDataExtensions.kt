@@ -1,16 +1,20 @@
 package id.co.rezkyauliapratama.lib_presenter.presenter.common
 
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.MediatorLiveData
+import id.co.rezkyauliapratama.lib_presenter.presenter.viewmodels.SingleLiveEvent
 
-fun <T> MutableLiveData<Resource<T>>.setSuccess(data: T) =
+fun <T> SingleLiveEvent<Resource<T>>.setSuccess(data: T): SingleLiveEvent<Resource<T>> {
     postValue(
         Resource(
             ResourceState.SUCCESS,
             data
         )
     )
+    return this
+}
 
-fun <T> MutableLiveData<Resource<T>>.setLoading() =
+
+fun <T> SingleLiveEvent<Resource<T>>.setLoading() =
     postValue(
         Resource(
             ResourceState.LOADING,
@@ -18,7 +22,7 @@ fun <T> MutableLiveData<Resource<T>>.setLoading() =
         )
     )
 
-fun <T> MutableLiveData<Resource<T>>.setEmpty() =
+fun <T> SingleLiveEvent<Resource<T>>.setEmpty() =
     postValue(
         Resource(
             ResourceState.EMPTY,
@@ -26,7 +30,7 @@ fun <T> MutableLiveData<Resource<T>>.setEmpty() =
         )
     )
 
-fun <T> MutableLiveData<Resource<T>>.setError(throwable: Throwable? = null) =
+fun <T> SingleLiveEvent<Resource<T>>.setError(throwable: Throwable? = null) =
     postValue(
         Resource(
             ResourceState.ERROR,
@@ -34,3 +38,11 @@ fun <T> MutableLiveData<Resource<T>>.setError(throwable: Throwable? = null) =
             throwable
         )
     )
+
+fun <STATE, RESOURCE> MediatorLiveData<STATE>.addLiveData(singleLiveEvent: SingleLiveEvent<RESOURCE>, combine: (RESOURCE) -> STATE) {
+    addSource(singleLiveEvent){
+        if(it != null){
+            value = combine(it)
+        }
+    }
+}

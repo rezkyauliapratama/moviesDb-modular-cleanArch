@@ -10,7 +10,6 @@ sealed class NetworkException(private val msg: String?) : Exception() {
         const val CODE_UNPROCESSABLE = 422
         const val CODE_SERVER_ERROR = 500
         const val CODE_REDIRECT = 302
-        const val CODE_DANA_ERROR = "DANA_ERROR"
     }
 
     override val message: String?
