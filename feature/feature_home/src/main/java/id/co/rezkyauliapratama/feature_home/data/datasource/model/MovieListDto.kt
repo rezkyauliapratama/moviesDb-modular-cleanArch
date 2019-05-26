@@ -1,7 +1,7 @@
-package id.co.rezkyauliapratama.feature_home.data.model
+package id.co.rezkyauliapratama.feature_home.data.datasource.model
 
 import com.squareup.moshi.Json
-import id.co.rezkyauliapratama.feature_home.domain.model.Movie
+import id.co.rezkyauliapratama.feature_home.domain.model.MovieModel
 
 class ListMoviesDto(
     @field:Json(name = "page") var page: Int,
@@ -42,7 +42,7 @@ class MovieDtoBean(
 )
 
 
-fun MovieDtoBean.mapToDomain(): Movie = Movie(
+fun MovieDtoBean.mapToDomain(): MovieModel = MovieModel(
     backdropPath = backdropPath,
     genreIds = genreIds,
     originalTitle = originalTitle,
@@ -55,4 +55,4 @@ fun MovieDtoBean.mapToDomain(): Movie = Movie(
     voteCount = voteCount
 )
 
-fun List<MovieDtoBean>.mapToDomain(): List<Movie> = map { it.mapToDomain() }
+fun List<MovieDtoBean>.mapToDomain(): List<MovieModel> = map { it.mapToDomain() }

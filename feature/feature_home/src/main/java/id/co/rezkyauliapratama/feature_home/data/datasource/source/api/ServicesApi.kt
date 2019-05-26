@@ -1,6 +1,6 @@
-package id.co.rezkyauliapratama.feature_home.data.source.api
+package id.co.rezkyauliapratama.feature_home.data.datasource.source.api
 
-import id.co.rezkyauliapratama.feature_home.data.model.ListMoviesDto
+import id.co.rezkyauliapratama.feature_home.data.datasource.model.ListMoviesDto
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
