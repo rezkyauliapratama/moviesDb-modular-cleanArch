@@ -7,6 +7,8 @@ android {
 }
 
 dependencies {
+    implementation Support.materialComponent
+    implementation Support.constraintLayout
     implementation Support.lifeCycleExtensions
     implementation Support.appCompat
 

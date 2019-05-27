@@ -12,7 +12,7 @@ class PopularMovieViewModel constructor(
 ) : BaseViewModelState<PopularMovieState>() {
 
     private val popularMovieLiveData = SingleLiveEvent<Resource<List<PopularMovieView>>>()
-    
+
     private val movieList: MutableList<PopularMovieView> = mutableListOf()
     private var initialPage: Int = 0
     private var isDataAvailable: Boolean = true

@@ -1,9 +1,9 @@
 package id.co.rezkyauliapratama.lib_presenter.presenter.views
 
 import android.content.Context
+import android.view.View
 
 
 interface ViewMvc {
-    val context: Context
-    var layoutRes : Int
+    var view: View
 }

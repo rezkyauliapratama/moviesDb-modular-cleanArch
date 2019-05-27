@@ -9,9 +9,10 @@ import android.view.ViewGroup
 import id.co.rezkyauliapratama.lib_presenter.presenter.views.ViewMvc
 import androidx.fragment.app.Fragment
 import id.co.rezkyauliapratama.lib_presenter.presenter.common.BaseViewMvcFactory
+import id.co.rezkyauliapratama.lib_presenter.presenter.viewmodels.BaseViewModel
 
 
-abstract class BaseFragment<CONTROLLER : BaseController, VIEW_MVC : ViewMvc>  : Fragment(){
+abstract class BaseFragment<VIEWMODEL:BaseViewModel, CONTROLLER : BaseController<VIEW_MVC,VIEWMODEL>, VIEW_MVC : ViewMvc>  : Fragment(){
 
     lateinit var viewMvcFactory: BaseViewMvcFactory
 
@@ -34,6 +35,6 @@ abstract class BaseFragment<CONTROLLER : BaseController, VIEW_MVC : ViewMvc>  : 
 
         initView(container)
         initDataBinding()
-        return inflater.inflate(mViewMvc.layoutRes, container, false)
+        return mViewMvc.view
     }
 }
