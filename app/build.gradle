@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
 
+apply from: "${rootProject.projectDir}/flavors.gradle"
+
 apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
@@ -15,15 +17,19 @@ android {
         versionCode Release.versionCode
         versionName Release.versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     dynamicFeatures = [Modules.featureHome]
 
+    with flavorConfig
 }
 
 dependencies {

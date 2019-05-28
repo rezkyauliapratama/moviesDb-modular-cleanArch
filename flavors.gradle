@@ -1,0 +1,43 @@
+ext.flavorConfig = {
+
+    flavorDimensions "environment"
+
+    productFlavors {
+        mock {
+            dimension "environment"
+            applicationIdSuffix ".mock"
+            resValue "string", "app_name", "skeleton(MOCK)"
+        }
+
+        development {
+            dimension "environment"
+            applicationIdSuffix ".dev"
+            resValue "string", "app_name", "skeleton(DEV)"
+        }
+
+        staging {
+            dimension "environment"
+            applicationIdSuffix ".stage"
+            resValue "string", "app_name", "skeleton(STAGE)"
+        }
+
+        production {
+            dimension "environment"
+            resValue "string", "app_name", "sekeleton"
+            // TODO: Fill with actual production API URL
+
+        }
+
+    }
+
+    productFlavors.all { flavor ->
+        if (flavor.hasProperty('myApplicationIdSuffix') && isApplicationProject()) {
+            flavor.applicationIdSuffix = flavor.myApplicationIdSuffix
+        }
+    }
+
+}
+
+def isApplicationProject() {
+    return project.android.class.simpleName.startsWith('BaseAppModuleExtension')
+}

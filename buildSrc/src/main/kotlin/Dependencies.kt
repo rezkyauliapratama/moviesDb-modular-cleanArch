@@ -35,6 +35,9 @@ object Version {
     //Dependency Injection
     const val koin = "2.0.0-GA4"
 
+    //image
+    const val glideVersion = "4.9.0"
+
     //Networking
     const val retrofitVersion = "2.4.0"
     const val okhttpLoggingVersion = "3.11.0"
@@ -70,6 +73,11 @@ object Support {
     val lifeCycleExtensions = "androidx.lifecycle:lifecycle-extensions:${Version.lifecycleVersion}"
     val materialComponent = "com.google.android.material:material:${Version.materialComponentVersion}"
     val legacySupport = "androidx.legacy:legacy-support-v4:${Version.legacySupportVersion}"
+}
+
+object Image{
+    val glide = "com.github.bumptech.glide:glide:${Version.glideVersion}"
+    val glideCompiler = "com.github.bumptech.glide:compiler:${Version.glideVersion}"
 }
 
 object Arch {

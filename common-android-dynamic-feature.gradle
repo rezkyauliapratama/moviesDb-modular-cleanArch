@@ -1,4 +1,6 @@
 apply plugin: 'com.android.dynamic-feature'
+apply from: "${rootProject.projectDir}/flavors.gradle"
+
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
@@ -9,7 +11,11 @@ android {
     defaultConfig {
         minSdkVersion Release.minSdkVersion
         targetSdkVersion Release.targetSdkVersion
+        versionCode Release.versionCode
+        versionName Release.versionName
     }
+
+    with flavorConfig
 }
 
 dependencies {
