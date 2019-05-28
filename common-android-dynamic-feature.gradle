@@ -23,6 +23,7 @@ dependencies {
 
     //support
     implementation Dependencies.kotlin
+    implementation Support.lifeCycleExtensions
     implementation Arch.navigationFragment
     implementation Arch.navigationKtx
 

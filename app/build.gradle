@@ -18,8 +18,8 @@ android {
         versionName Release.versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
-
     }
+
     buildTypes {
         release {
             minifyEnabled true

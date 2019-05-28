@@ -13,7 +13,7 @@ abstract class BaseController<VIEWMVC : ViewMvc, VIEWMODEL : BaseViewModel> : Li
     protected lateinit var mViewModel: VIEWMODEL
     protected lateinit var mLifecycle: Lifecycle
 
-    abstract fun bindController(viewMvc: VIEWMVC, viewModel: VIEWMODEL, lifecycle: Lifecycle)
+    abstract fun bind(viewMvc: VIEWMVC, viewModel: VIEWMODEL, lifecycle: Lifecycle)
 
 
     @CallSuper

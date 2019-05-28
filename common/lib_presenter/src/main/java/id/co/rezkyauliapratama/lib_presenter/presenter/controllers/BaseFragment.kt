@@ -6,27 +6,27 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import id.co.rezkyauliapratama.lib_presenter.presenter.views.ViewMvc
 import androidx.fragment.app.Fragment
 import id.co.rezkyauliapratama.lib_presenter.presenter.common.BaseViewMvcFactory
 import id.co.rezkyauliapratama.lib_presenter.presenter.viewmodels.BaseViewModel
+import id.co.rezkyauliapratama.lib_presenter.presenter.views.ViewMvc
 
 
-abstract class BaseFragment<VIEWMODEL:BaseViewModel, CONTROLLER : BaseController<VIEW_MVC,VIEWMODEL>, VIEW_MVC : ViewMvc>  : Fragment(){
+abstract class BaseFragment<MVCFACTORY: BaseViewMvcFactory, VIEWMODEL : BaseViewModel, CONTROLLER : BaseController<VIEWMVC, VIEWMODEL>, VIEWMVC : ViewMvc> :
+    Fragment() {
 
-    lateinit var viewMvcFactory: BaseViewMvcFactory
+    lateinit var mViewMvcFactory: MVCFACTORY
 
     lateinit var mController: CONTROLLER
 
-    lateinit var mViewMvc: VIEW_MVC
+    lateinit var mViewMvc: VIEWMVC
 
     abstract fun inject()
     abstract fun initView(container: ViewGroup?)
-    abstract fun initDataBinding()
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        if (context is Activity){
+        if (context is Activity) {
             inject()
         }
     }
@@ -34,7 +34,6 @@ abstract class BaseFragment<VIEWMODEL:BaseViewModel, CONTROLLER : BaseController
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         initView(container)
-        initDataBinding()
         return mViewMvc.view
     }
 }

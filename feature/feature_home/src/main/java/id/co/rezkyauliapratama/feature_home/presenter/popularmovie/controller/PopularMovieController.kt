@@ -11,7 +11,7 @@ class PopularMovieController : BaseController<PopularMovieViewMvc, PopularMovieV
 
     }
 
-    override fun bindController(viewMvc: PopularMovieViewMvc, viewModel: PopularMovieViewModel, lifecycle: Lifecycle) {
+    override fun bind(viewMvc: PopularMovieViewMvc, viewModel: PopularMovieViewModel, lifecycle: Lifecycle) {
         mViewMvc = viewMvc
         mViewModel = mViewModel
         mLifecycle = lifecycle
