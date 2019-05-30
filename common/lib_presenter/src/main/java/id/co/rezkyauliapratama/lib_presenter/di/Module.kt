@@ -1,28 +1,46 @@
 package id.co.rezkyauliapratama.lib_presenter.di
 
-import android.view.LayoutInflater
+import android.content.Context
 import com.bumptech.glide.Glide
+import com.bumptech.glide.RequestManager
+import dagger.Module
+import dagger.Provides
 import id.co.rezkyauliapratama.lib_presenter.data.executors.JobExecutor
 import id.co.rezkyauliapratama.lib_presenter.domain.executors.PostExecutionThread
 import id.co.rezkyauliapratama.lib_presenter.domain.executors.ThreadExecutor
 import id.co.rezkyauliapratama.lib_presenter.presenter.UIThread
-import org.koin.android.ext.koin.androidContext
-import org.koin.core.module.Module
-import org.koin.dsl.module
 
-val viewFactory: Module = module {
-    factory { LayoutInflater.from(androidContext()) }
+@Module
+class PresenterModule(val context: Context) {
+
+    @ActivityContext
+    @Provides
+    fun providesActivityContext(): Context {
+        return context
+    }
 
 }
 
-val glideModule: Module = module {
+@Module
+class SchedulerModule() {
 
-    factory { Glide.with(androidContext()) }
+    @Provides
+    fun providesThreadExecutor() : ThreadExecutor{
+        return JobExecutor()
+    }
+
+    @Provides
+    fun provides(): PostExecutionThread {
+        return UIThread()
+    }
 }
 
-val schedulerModule: Module = module {
+@Module
+class GlideModule() {
 
-    single { JobExecutor() as ThreadExecutor }
+    @Provides
+    fun providesGlide(@ActivityContext context: Context): RequestManager{
+        return Glide.with(context)
+    }
 
-    factory { UIThread() as PostExecutionThread }
 }

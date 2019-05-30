@@ -18,7 +18,7 @@ dependencies {
     implementation Dependencies.kotlin
 
     //dependency injection
-    implementation Koin.core
-    implementation Koin.android
-    implementation Koin.androidScope
+    //Dagger2
+    implementation Dagger.dagger
+    kapt Dagger.daggerCompiler
 }
