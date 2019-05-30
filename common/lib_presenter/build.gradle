@@ -1,15 +1,14 @@
 apply from: "$rootDir/common-android-library.gradle"
 
-android {
-    dataBinding {
-        enabled = true
-    }
-}
-
 dependencies {
+    implementation Support.materialComponent
+    implementation Support.constraintLayout
     implementation Support.lifeCycleExtensions
     implementation Support.appCompat
 
     implementation Reactivex.kotlin
     implementation Reactivex.android
+
+    implementation Image.glide
+    kapt Image.glideCompiler
 }

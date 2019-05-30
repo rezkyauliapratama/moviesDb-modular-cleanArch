@@ -1,2 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="id.co.rezkyauliapratama.feature_home"/>
+          package="id.co.rezkyauliapratama.feature_home">
+    <application >
+        <activity android:name=".presenter.HomeActivity">
+            <intent-filter>
+                <action android:name="action.home.open"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

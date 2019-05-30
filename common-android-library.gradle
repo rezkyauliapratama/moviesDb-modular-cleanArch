@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion Release.compileSdkVersion
@@ -11,18 +12,13 @@ android {
         versionCode Release.versionCode
         versionName Release.versionName
     }
-
-    buildTypes {
-        release {
-            minifyEnabled true
-        }
-    }
 }
 
 dependencies {
     implementation Dependencies.kotlin
 
-    implementation Dagger.dagger
-    implementation Dagger.daggerCompiler
-
+    //dependency injection
+    implementation Koin.core
+    implementation Koin.android
+    implementation Koin.androidScope
 }

@@ -1,0 +1,42 @@
+ext.flavorConfig = {
+
+    flavorDimensions "environment"
+
+    productFlavors {
+        mock {
+            dimension "environment"
+            applicationIdSuffix ".mock"
+            resValue "string", "app_name", "skeleton(MOCK)"
+            buildConfigField 'String', 'API_BASE_URL', '"http://api.themoviedb.org/3/"'
+            buildConfigField 'String', 'IMAGE_BASE_URL', '"https://image.tmdb.org/t/p/"'
+        }
+
+        development {
+            dimension "environment"
+            applicationIdSuffix ".dev"
+            resValue "string", "app_name", "skeleton(DEV)"
+            buildConfigField 'String', 'API_BASE_URL', '"http://api.themoviedb.org/3/"'
+            buildConfigField 'String', 'IMAGE_BASE_URL', '"https://image.tmdb.org/t/p/"'
+        }
+
+        staging {
+            dimension "environment"
+            applicationIdSuffix ".stage"
+            resValue "string", "app_name", "skeleton(STAGE)"
+            buildConfigField 'String', 'API_BASE_URL', '"http://api.themoviedb.org/3/"'
+            buildConfigField 'String', 'IMAGE_BASE_URL', '"https://image.tmdb.org/t/p/"'
+        }
+
+        production {
+            dimension "environment"
+            resValue "string", "app_name", "sekeleton"
+            buildConfigField 'String', 'API_BASE_URL', '"http://api.themoviedb.org/3/"'
+            buildConfigField 'String', 'IMAGE_BASE_URL', '"https://image.tmdb.org/t/p/"'
+            // TODO: Fill with actual production API URL
+
+        }
+
+    }
+
+}
+

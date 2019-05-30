@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/mobile_navigation"
+            app:startDestination="@id/popularMovieFragment">
+
+    <fragment android:id="@+id/popularMovieFragment"
+              android:name="id.co.rezkyauliapratama.feature_home.presenter.popularmovie.PopularMovieFragment"
+              android:label="PopularMovieFragment"
+              tools:layout="@layout/fragment_movie_list"
+    />
+</navigation>

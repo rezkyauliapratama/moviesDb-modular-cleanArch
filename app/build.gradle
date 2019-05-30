@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
 
+apply from: "${rootProject.projectDir}/flavors.gradle"
+
 apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
@@ -15,23 +17,55 @@ android {
         versionCode Release.versionCode
         versionName Release.versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
+
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    dynamicFeatures = [Modules.featureHome]
+
+    with flavorConfig
 }
 
 dependencies {
+    api 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation project(Modules.libNavigation)
+    implementation project(Modules.libPresenter)
+    implementation project(Modules.libNetwork)
+
+    //support
     implementation Dependencies.kotlin
     implementation Support.appCompat
     implementation Support.core
     implementation Support.constraintLayout
     implementation Support.materialComponent
+
+    //network
+    implementation Retrofit.retrofit
+    implementation Retrofit.moshiConverter
+    implementation Retrofit.adapterRxJava
+    implementation Retrofit.loggingInterceptor
+    implementation Json.moshiKotlin
+
+    //reactivex
+    implementation Reactivex.kotlin
+    implementation Reactivex.android
+
+    //dependency injection
+    implementation Koin.core
+    implementation Koin.android
+    implementation Koin.androidScope
+    implementation Koin.androidViewModel
+
+    //unittest
     testImplementation TestLibs.junit
     androidTestImplementation TestLibs.testRunner
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+
 }

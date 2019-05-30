@@ -1,5 +1,8 @@
 apply plugin: 'kotlin'
+apply plugin: 'kotlin-kapt'
 
 dependencies {
     implementation Dependencies.kotlin
+
+    implementation Koin.core
 }

@@ -1,6 +1,9 @@
 apply plugin: 'com.android.dynamic-feature'
+apply from: "${rootProject.projectDir}/flavors.gradle"
+
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion Release.compileSdkVersion
@@ -8,10 +11,45 @@ android {
     defaultConfig {
         minSdkVersion Release.minSdkVersion
         targetSdkVersion Release.targetSdkVersion
+        versionCode Release.versionCode
+        versionName Release.versionName
     }
+
+    with flavorConfig
 }
 
 dependencies {
     implementation project(Modules.app)
+
+    //support
     implementation Dependencies.kotlin
+    implementation Support.lifeCycleExtensions
+    implementation Arch.navigationFragment
+    implementation Arch.navigationKtx
+
+    //dependency injection
+    implementation Koin.core
+    implementation Koin.android
+    implementation Koin.androidScope
+    implementation Koin.androidViewModel
+
+    //json adapter
+    implementation Json.moshi
+    implementation Json.moshiKotlin
+    kapt Json.moshiKapt
+
+    //network
+    implementation Retrofit.retrofit
+    implementation Retrofit.moshiConverter
+    implementation Retrofit.adapterRxJava
+    implementation Retrofit.loggingInterceptor
+    implementation Json.moshiKotlin
+
+    //reactivex
+    implementation Reactivex.kotlin
+    implementation Reactivex.android
+
+    //image
+    implementation Image.glide
+    kapt Image.glideCompiler
 }
