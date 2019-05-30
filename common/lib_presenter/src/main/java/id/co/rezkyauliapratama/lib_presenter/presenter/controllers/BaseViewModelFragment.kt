@@ -17,7 +17,6 @@ abstract class BaseViewModelFragment<MVCFACTORY: BaseViewMvcFactory, VIEWMODEL :
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         initLiveDataObservers()
-        viewModel.loadPage()
     }
 
     @CallSuper

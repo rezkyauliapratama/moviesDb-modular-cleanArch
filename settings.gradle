@@ -2,3 +2,4 @@ include Modules.app
 include Modules.featureHome
 include Modules.libNetwork
 include Modules.libPresenter
+include Modules.libNavigation

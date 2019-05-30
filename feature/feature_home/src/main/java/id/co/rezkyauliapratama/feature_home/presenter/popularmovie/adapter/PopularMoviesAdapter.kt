@@ -11,6 +11,13 @@ class PopularMoviesAdapter(private val viewMvcFactory: ViewMvcFactory) :
 
     private val mItems: ArrayList<PopularMovieView> = ArrayList()
 
+    fun bindMovies(popularMovies: List<PopularMovieView>){
+        mItems.clear()
+        if (popularMovies.isNotEmpty()){
+            mItems.addAll(popularMovies)
+        }
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val viewMvc = viewMvcFactory.getPopularMovieAdapterViewMvc(parent)

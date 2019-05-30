@@ -6,32 +6,51 @@ import id.co.rezkyauliapratama.feature_home.data.datasource.source.datasource.Mo
 import id.co.rezkyauliapratama.feature_home.data.repository.MovieRepositoryImpl
 import id.co.rezkyauliapratama.feature_home.domain.repository.MovieRepository
 import id.co.rezkyauliapratama.feature_home.domain.usecase.GetPopularMovie
+import id.co.rezkyauliapratama.feature_home.domain.viewmodel.PopularMovieViewModel
+import id.co.rezkyauliapratama.feature_home.presenter.common.ViewMvcFactory
 import id.co.rezkyauliapratama.feature_home.presenter.model.PopularMovieView
+import id.co.rezkyauliapratama.feature_home.presenter.popularmovie.controller.PopularMovieController
 import id.co.rezkyauliapratama.lib_network.common.ErrorTransformer
 import id.co.rezkyauliapratama.lib_network.di.DI_API_KEY
+import id.co.rezkyauliapratama.lib_network.di.DI_RETROFIT
+import id.co.rezkyauliapratama.lib_network.di.networkModule
 import id.co.rezkyauliapratama.lib_network.services
+import id.co.rezkyauliapratama.lib_presenter.di.glideModule
+import id.co.rezkyauliapratama.lib_presenter.di.schedulerModule
+import id.co.rezkyauliapratama.lib_presenter.di.viewFactory
 import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.core.context.loadKoinModules
 import org.koin.core.module.Module
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
-import id.co.rezkyauliapratama.feature_home.domain.viewmodel.PopularMovieViewModel
-import id.co.rezkyauliapratama.lib_network.di.networkModule
-import id.co.rezkyauliapratama.lib_presenter.di.schedulerModule
-import org.koin.core.context.loadKoinModules
 
 fun injectFeature() = loadFeature
 
 private val loadFeature by lazy {
     loadKoinModules(
-        viewModelModule,
-        useCaseModule,
-        errorTransformerModule,
-        repositoryModule,
-        dataSourceModule,
-        apiModule,
-        networkModule,
-        schedulerModule
+        arrayListOf(
+            viewModelModule,
+            useCaseModule,
+            errorTransformerModule,
+            repositoryModule,
+            dataSourceModule,
+            apiModule,
+            networkModule,
+            schedulerModule,
+            glideModule,
+            viewMvc,
+            controller,
+            viewFactory
+        )
     )
+}
+
+val viewMvc: Module = module {
+    factory { ViewMvcFactory(get()) }
+}
+
+val controller: Module = module {
+    factory { PopularMovieController() }
 }
 
 val viewModelModule: Module = module {
@@ -56,7 +75,7 @@ val dataSourceModule: Module = module {
 
 val apiModule: Module = module {
     //provide movie api
-    single(named(DI_MOVIE_API)) { services<MoviesApi>(retrofit = get()) }
+    single(named(DI_MOVIE_API)) { services<MoviesApi>(retrofit = get(named(DI_RETROFIT))) }
 }
 
 const val DI_MOVIE_API = "DI_MOVIE_API"

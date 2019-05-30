@@ -33,7 +33,7 @@ object Version {
     const val daggerVersion = "2.18"
 
     //Dependency Injection
-    const val koin = "2.0.0-GA4"
+    const val koin = "2.0.1"
 
     //image
     const val glideVersion = "4.9.0"

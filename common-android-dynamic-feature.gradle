@@ -48,4 +48,8 @@ dependencies {
     //reactivex
     implementation Reactivex.kotlin
     implementation Reactivex.android
+
+    //image
+    implementation Image.glide
+    kapt Image.glideCompiler
 }

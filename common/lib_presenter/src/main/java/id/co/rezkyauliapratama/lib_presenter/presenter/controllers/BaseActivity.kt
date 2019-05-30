@@ -24,8 +24,23 @@ abstract class BaseActivity<VIEWMODEL:BaseViewModel, CONTROLLER : BaseController
         initView()
 
         super.onCreate(savedInstanceState)
-
+        mController.onCreated()
         setContentView(mViewMvc.view)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        mController.onStart()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        mController.onStop()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mController.onDestroyed()
     }
 
 

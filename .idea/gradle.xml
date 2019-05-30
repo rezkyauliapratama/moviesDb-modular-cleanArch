@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/buildSrc" />
             <option value="$PROJECT_DIR$/common" />
+            <option value="$PROJECT_DIR$/common/lib_navigation" />
             <option value="$PROJECT_DIR$/common/lib_network" />
             <option value="$PROJECT_DIR$/common/lib_presenter" />
             <option value="$PROJECT_DIR$/feature" />

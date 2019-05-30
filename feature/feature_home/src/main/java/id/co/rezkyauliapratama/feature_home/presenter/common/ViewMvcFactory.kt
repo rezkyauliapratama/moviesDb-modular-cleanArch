@@ -10,8 +10,8 @@ import id.co.rezkyauliapratama.lib_presenter.presenter.common.BaseViewMvcFactory
 
 class ViewMvcFactory(private val mLayoutInflater: LayoutInflater) : BaseViewMvcFactory {
 
-    fun getPopularMoviesViewMvc(parent: ViewGroup?): PopularMovieViewMvc{
-        return PopularMovieViewMvcImpl(mLayoutInflater, parent)
+    fun getPopularMoviesViewMvc(parent: ViewGroup?, viewMvcFactory: ViewMvcFactory): PopularMovieViewMvc{
+        return PopularMovieViewMvcImpl(mLayoutInflater, parent, viewMvcFactory)
     }
 
     fun getPopularMovieAdapterViewMvc(parent: ViewGroup?): PopularMovieAdapterViewMvc {

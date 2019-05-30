@@ -18,8 +18,9 @@ val networkModule: Module = module {
     single { getHttpClientBuilder(interceptors = get()) }
 
     //provide retrofit
-    single { (url: String) -> getRetrofit(okHttpClient = get(), moshi = get(), url = url) }
+    single(named(DI_RETROFIT)) { (url: String) -> getRetrofit(okHttpClient = get(), moshi = get(), url = url) }
 
 }
 
 const val DI_API_KEY = "apiKey"
+const val DI_RETROFIT = "retrofit"

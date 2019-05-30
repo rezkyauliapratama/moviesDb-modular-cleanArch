@@ -8,7 +8,7 @@ import id.co.rezkyauliapratama.lib_presenter.presenter.viewmodels.SingleLiveEven
 
 
 class PopularMovieViewModel constructor(
-    val getPopularMovie: GetPopularMovie
+    private val getPopularMovie: GetPopularMovie
 ) : BaseViewModelState<PopularMovieState>() {
 
     private val popularMovieLiveData = SingleLiveEvent<Resource<List<PopularMovieView>>>()
@@ -21,7 +21,6 @@ class PopularMovieViewModel constructor(
 
         stateLiveData.addLiveData(popularMovieLiveData) {
             PopularMovieState.MovieListState(it)
-
         }
 
     }
