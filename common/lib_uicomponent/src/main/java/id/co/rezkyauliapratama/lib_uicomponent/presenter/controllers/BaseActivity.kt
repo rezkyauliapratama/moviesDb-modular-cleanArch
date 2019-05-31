@@ -1,10 +1,10 @@
-package id.co.rezkyauliapratama.lib_presenter.presenter.controllers
+package id.co.rezkyauliapratama.lib_uicomponent.presenter.controllers
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import id.co.rezkyauliapratama.lib_presenter.presenter.common.BaseViewMvcFactory
-import id.co.rezkyauliapratama.lib_presenter.presenter.viewmodels.BaseViewModel
-import id.co.rezkyauliapratama.lib_presenter.presenter.views.ViewMvc
+import id.co.rezkyauliapratama.lib_uicomponent.presenter.common.BaseViewMvcFactory
+import id.co.rezkyauliapratama.lib_uicomponent.presenter.viewmodels.BaseViewModel
+import id.co.rezkyauliapratama.lib_uicomponent.presenter.views.ViewMvc
 
 abstract class BaseActivity<VIEWMODEL : BaseViewModel, CONTROLLER : BaseController<VIEW_MVC, VIEWMODEL>, VIEW_MVC : ViewMvc> :
     AppCompatActivity() {

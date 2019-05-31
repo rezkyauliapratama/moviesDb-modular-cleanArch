@@ -1,7 +1,7 @@
-package id.co.rezkyauliapratama.lib_presenter.presenter.common
+package id.co.rezkyauliapratama.lib_uicomponent.presenter.common
 
 import androidx.lifecycle.MediatorLiveData
-import id.co.rezkyauliapratama.lib_presenter.presenter.viewmodels.SingleLiveEvent
+import id.co.rezkyauliapratama.lib_uicomponent.presenter.viewmodels.SingleLiveEvent
 
 fun <T> SingleLiveEvent<Resource<T>>.setSuccess(data: T): SingleLiveEvent<Resource<T>> {
     postValue(
@@ -12,7 +12,6 @@ fun <T> SingleLiveEvent<Resource<T>>.setSuccess(data: T): SingleLiveEvent<Resour
     )
     return this
 }
-
 
 fun <T> SingleLiveEvent<Resource<T>>.setLoading() =
     postValue(
@@ -39,9 +38,12 @@ fun <T> SingleLiveEvent<Resource<T>>.setError(throwable: Throwable? = null) =
         )
     )
 
-fun <STATE, RESOURCE> MediatorLiveData<STATE>.addLiveData(singleLiveEvent: SingleLiveEvent<RESOURCE>, combine: (RESOURCE) -> STATE) {
-    addSource(singleLiveEvent){
-        if(it != null){
+fun <STATE, RESOURCE> MediatorLiveData<STATE>.addLiveData(
+    singleLiveEvent: SingleLiveEvent<RESOURCE>,
+    combine: (RESOURCE) -> STATE
+) {
+    addSource(singleLiveEvent) {
+        if (it != null) {
             value = combine(it)
         }
     }

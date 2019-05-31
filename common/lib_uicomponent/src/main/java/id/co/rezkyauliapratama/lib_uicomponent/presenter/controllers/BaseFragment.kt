@@ -1,4 +1,4 @@
-package id.co.rezkyauliapratama.lib_presenter.presenter.controllers
+package id.co.rezkyauliapratama.lib_uicomponent.presenter.controllers
 
 import android.app.Activity
 import android.content.Context
@@ -8,9 +8,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import id.co.rezkyauliapratama.lib_presenter.presenter.common.BaseViewMvcFactory
-import id.co.rezkyauliapratama.lib_presenter.presenter.viewmodels.BaseViewModel
-import id.co.rezkyauliapratama.lib_presenter.presenter.views.ViewMvc
+import id.co.rezkyauliapratama.lib_uicomponent.presenter.common.BaseViewMvcFactory
+import id.co.rezkyauliapratama.lib_uicomponent.presenter.viewmodels.BaseViewModel
+import id.co.rezkyauliapratama.lib_uicomponent.presenter.views.ViewMvc
 
 
 abstract class BaseFragment<MVCFACTORY : BaseViewMvcFactory, VIEWMODEL : BaseViewModel, CONTROLLER : BaseController<VIEWMVC, VIEWMODEL>, VIEWMVC : ViewMvc> :

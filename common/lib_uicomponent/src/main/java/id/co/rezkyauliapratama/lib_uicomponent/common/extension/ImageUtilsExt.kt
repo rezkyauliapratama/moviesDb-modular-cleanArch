@@ -1,4 +1,4 @@
-package id.co.rezkyauliapratama.lib_presenter.common.extension
+package id.co.rezkyauliapratama.lib_uicomponent.common.extension
 
 import android.widget.ImageView
 import com.bumptech.glide.Glide

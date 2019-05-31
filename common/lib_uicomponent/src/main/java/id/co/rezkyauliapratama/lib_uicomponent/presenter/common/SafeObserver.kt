@@ -1,4 +1,4 @@
-package id.co.rezkyauliapratama.lib_presenter.presenter.common
+package id.co.rezkyauliapratama.lib_uicomponent.presenter.common
 
 import androidx.lifecycle.Observer
 

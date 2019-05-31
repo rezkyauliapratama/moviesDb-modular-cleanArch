@@ -1,6 +1,6 @@
-package id.co.rezkyauliapratama.lib_presenter.domain.interactors.reactivebase
+package id.co.rezkyauliapratama.lib_uicomponent.domain.interactors.reactivebase
 
-import id.co.rezkyauliapratama.lib_presenter.domain.common.SchedulerTransformer
+import id.co.rezkyauliapratama.lib_uicomponent.domain.common.SchedulerTransformer
 import io.reactivex.Observable
 import io.reactivex.ObservableTransformer
 

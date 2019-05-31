@@ -1,6 +1,6 @@
-package id.co.rezkyauliapratama.lib_presenter.domain.interactors.reactivebase
+package id.co.rezkyauliapratama.lib_uicomponent.domain.interactors.reactivebase
 
-import id.co.rezkyauliapratama.lib_presenter.domain.common.NetworkSchedulerTransformer
+import id.co.rezkyauliapratama.lib_uicomponent.domain.common.NetworkSchedulerTransformer
 import io.reactivex.Single
 import io.reactivex.SingleTransformer
 
