@@ -3,3 +3,4 @@ include Modules.featureHome
 include Modules.libNetwork
 include Modules.libPresenter
 include Modules.libNavigation
+include Modules.libCore

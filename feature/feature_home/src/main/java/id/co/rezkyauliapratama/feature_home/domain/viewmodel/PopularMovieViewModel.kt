@@ -2,9 +2,9 @@ package id.co.rezkyauliapratama.feature_home.domain.viewmodel
 
 import id.co.rezkyauliapratama.feature_home.domain.usecase.GetPopularMovie
 import id.co.rezkyauliapratama.feature_home.presenter.model.PopularMovieView
-import id.co.rezkyauliapratama.lib_presenter.presenter.common.*
-import id.co.rezkyauliapratama.lib_presenter.presenter.viewmodels.BaseViewModelState
-import id.co.rezkyauliapratama.lib_presenter.presenter.viewmodels.SingleLiveEvent
+import id.co.rezkyauliapratama.lib_uicomponent.presenter.viewmodels.BaseViewModelState
+import id.co.rezkyauliapratama.lib_uicomponent.presenter.viewmodels.SingleLiveEvent
+import id.co.rezkyauliapratama.lib_uicomponent.presenter.common.*
 
 
 class PopularMovieViewModel constructor(

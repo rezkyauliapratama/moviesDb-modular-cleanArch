@@ -6,9 +6,9 @@ import id.co.rezkyauliapratama.feature_home.domain.viewmodel.PopularMovieState.M
 import id.co.rezkyauliapratama.feature_home.domain.viewmodel.PopularMovieViewModel
 import id.co.rezkyauliapratama.feature_home.presenter.model.PopularMovieView
 import id.co.rezkyauliapratama.feature_home.presenter.popularmovie.view.PopularMovieViewMvc
-import id.co.rezkyauliapratama.lib_presenter.presenter.common.ResourceState
-import id.co.rezkyauliapratama.lib_presenter.presenter.common.SafeObserver
-import id.co.rezkyauliapratama.lib_presenter.presenter.controllers.BaseController
+import id.co.rezkyauliapratama.lib_uicomponent.presenter.common.ResourceState
+import id.co.rezkyauliapratama.lib_uicomponent.presenter.common.SafeObserver
+import id.co.rezkyauliapratama.lib_uicomponent.presenter.controllers.BaseController
 
 class PopularMovieController : BaseController<PopularMovieViewMvc, PopularMovieViewModel>(),
     PopularMovieViewMvc.Listener {

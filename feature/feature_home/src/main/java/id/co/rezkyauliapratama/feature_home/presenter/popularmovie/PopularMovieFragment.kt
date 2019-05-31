@@ -6,7 +6,7 @@ import id.co.rezkyauliapratama.feature_home.domain.viewmodel.PopularMovieViewMod
 import id.co.rezkyauliapratama.feature_home.presenter.common.ViewMvcFactory
 import id.co.rezkyauliapratama.feature_home.presenter.popularmovie.controller.PopularMovieController
 import id.co.rezkyauliapratama.feature_home.presenter.popularmovie.view.PopularMovieViewMvc
-import id.co.rezkyauliapratama.lib_presenter.presenter.controllers.BaseViewModelFragment
+import id.co.rezkyauliapratama.lib_uicomponent.presenter.controllers.BaseViewModelFragment
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
