@@ -37,14 +37,3 @@ fun <T> SingleLiveEvent<Resource<T>>.setError(throwable: Throwable? = null) =
             throwable
         )
     )
-
-fun <STATE, RESOURCE> MediatorLiveData<STATE>.addLiveData(
-    singleLiveEvent: SingleLiveEvent<RESOURCE>,
-    combine: (RESOURCE) -> STATE
-) {
-    addSource(singleLiveEvent) {
-        if (it != null) {
-            value = combine(it)
-        }
-    }
-}

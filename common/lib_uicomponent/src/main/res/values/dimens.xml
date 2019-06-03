@@ -33,6 +33,7 @@
     <dimen name="space_x_jumbo">32dp</dimen>
     <dimen name="space_xx_jumbo">36dp</dimen>
     <dimen name="space_xxxl_jumbo">40dp</dimen>
+    <dimen name="medium_height_iv">180dp</dimen>
 
     <dimen name="space_45dp">45dp</dimen>
     <dimen name="space_48dp">48dp</dimen>

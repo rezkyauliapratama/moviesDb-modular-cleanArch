@@ -7,10 +7,10 @@ import io.reactivex.ObservableTransformer
 
 abstract class ObservableUseCase<RESULT>(private val errorTransformer: ObservableTransformer<in RESULT,out RESULT>) {
 
-    abstract fun buildUseCaseSingle(data: Map<String, Any?> = emptyMap()): Observable<RESULT>
+    abstract fun buildUseCaseObservable(data: Map<String, Any?> = emptyMap()): Observable<RESULT>
 
     fun execute(data: Map<String, Any?> = emptyMap()): Observable<RESULT> {
-        return buildUseCaseSingle(data)
+        return buildUseCaseObservable(data)
             .compose(errorTransformer)
             .compose(SchedulerTransformer())
     }

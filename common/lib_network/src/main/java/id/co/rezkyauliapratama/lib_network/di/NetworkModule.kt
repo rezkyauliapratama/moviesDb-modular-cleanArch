@@ -3,6 +3,7 @@ package id.co.rezkyauliapratama.lib_network.di
 import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
+import id.co.rezkyauliapratama.lib_network.getHttpClientBuilder
 import id.co.rezkyauliapratama.lib_network.getMoshi
 import id.co.rezkyauliapratama.lib_network.getRetrofit
 import okhttp3.Interceptor
@@ -30,9 +31,9 @@ class NetworkModule(private val url: String, private val interceptors: ArrayList
     @Provides
     fun provideOkHttpClient(
     ): OkHttpClient {
-        val clientBuilder = OkHttpClient.Builder()
-            .followRedirects(false)
-        interceptors.forEach {
+        val clientBuilder = getHttpClientBuilder(interceptors)
+
+        interceptors.map {
             clientBuilder.addInterceptor(it)
         }
         return clientBuilder.build()

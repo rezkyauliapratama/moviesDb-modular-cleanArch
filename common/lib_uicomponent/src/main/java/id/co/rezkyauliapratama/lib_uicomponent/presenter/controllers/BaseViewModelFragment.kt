@@ -7,8 +7,8 @@ import id.co.rezkyauliapratama.lib_uicomponent.presenter.viewmodels.BaseViewMode
 import id.co.rezkyauliapratama.lib_uicomponent.presenter.views.ViewMvc
 
 
-abstract class BaseViewModelFragment<MVCFACTORY: BaseViewMvcFactory, VIEWMODEL : BaseViewModel, CONTROLLER : BaseController<VIEWMVC, VIEWMODEL>, VIEWMVC : ViewMvc>
-    : BaseFragment<MVCFACTORY, VIEWMODEL, CONTROLLER, VIEWMVC>() {
+abstract class BaseViewModelFragment<MVCFACTORY : BaseViewMvcFactory, VIEWMODEL : BaseViewModel, CONTROLLER : BaseViewModelController<VIEWMVC, VIEWMODEL>, VIEWMVC : ViewMvc>
+    : BaseFragment<MVCFACTORY, CONTROLLER, VIEWMVC>() {
 
     protected val viewModel by lazy { buildViewModel() }
 
@@ -16,11 +16,22 @@ abstract class BaseViewModelFragment<MVCFACTORY: BaseViewMvcFactory, VIEWMODEL :
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        initLiveDataObservers()
+        mController.onCreated()
+        viewModel.loadPage()
     }
 
-    @CallSuper
-    protected open fun initLiveDataObservers() {
+    override fun onStart() {
+        super.onStart()
+        mController.onStart()
     }
 
+    override fun onStop() {
+        super.onStop()
+        mController.onStop()
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        mController.onDestroyed()
+    }
 }

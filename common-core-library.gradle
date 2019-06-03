@@ -1,0 +1,14 @@
+dependencies {
+    //network
+    implementation Retrofit.retrofit
+    implementation Retrofit.moshiConverter
+    implementation Retrofit.adapterRxJava
+    implementation Retrofit.loggingInterceptor
+
+    implementation Json.moshiKotlin
+    kapt Json.moshiKapt
+
+    implementation Reactivex.kotlin
+    implementation Reactivex.android
+
+}

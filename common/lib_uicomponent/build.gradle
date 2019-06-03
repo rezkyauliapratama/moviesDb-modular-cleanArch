@@ -1,13 +1,11 @@
 apply from: "$rootDir/common-android-library.gradle"
+apply from: "$rootDir/common-core-library.gradle"
 
 dependencies {
     implementation Support.materialComponent
     implementation Support.constraintLayout
     implementation Support.lifeCycleExtensions
     implementation Support.appCompat
-
-    implementation Reactivex.kotlin
-    implementation Reactivex.android
 
     implementation Image.glide
     kapt Image.glideCompiler

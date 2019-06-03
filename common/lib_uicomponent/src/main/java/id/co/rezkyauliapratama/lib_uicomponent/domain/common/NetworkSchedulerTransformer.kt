@@ -8,13 +8,7 @@ import io.reactivex.SingleTransformer
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
-class NetworkSchedulerTransformer<T> : SingleTransformer<T, T> {
-
-    @Inject
-    lateinit var threadExecutor: ThreadExecutor
-
-    @Inject
-    lateinit var postExecutionThread: PostExecutionThread
+class NetworkSchedulerTransformer<T> @Inject constructor(private val threadExecutor: ThreadExecutor, private val postExecutionThread: PostExecutionThread): SingleTransformer<T, T> {
 
     override fun apply(upstream: Single<T>): SingleSource<T> {
         return upstream.subscribeOn(Schedulers.from(threadExecutor))

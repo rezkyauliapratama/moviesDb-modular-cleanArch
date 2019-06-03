@@ -2,18 +2,24 @@ package id.co.rezkyauliapratama.lib_uicomponent.presenter.controllers
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import id.co.rezkyauliapratama.lib_uicomponent.presenter.common.BaseViewMvcFactory
-import id.co.rezkyauliapratama.lib_uicomponent.presenter.viewmodels.BaseViewModel
 import id.co.rezkyauliapratama.lib_uicomponent.presenter.views.ViewMvc
+import javax.inject.Inject
 
-abstract class BaseActivity<VIEWMODEL : BaseViewModel, CONTROLLER : BaseController<VIEW_MVC, VIEWMODEL>, VIEW_MVC : ViewMvc> :
+abstract class BaseActivity<MVCFACTORY : BaseViewMvcFactory, CONTROLLER : BaseController<VIEWMVC>, VIEWMVC : ViewMvc> :
     AppCompatActivity() {
 
+    @Inject
     lateinit var viewMvcFactory: BaseViewMvcFactory
 
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
+
+    @Inject
     lateinit var mController: CONTROLLER
 
-    lateinit var mViewMvc: VIEW_MVC
+    lateinit var mViewMvc: VIEWMVC
 
 
     abstract fun inject()
@@ -24,24 +30,7 @@ abstract class BaseActivity<VIEWMODEL : BaseViewModel, CONTROLLER : BaseControll
         initView()
 
         super.onCreate(savedInstanceState)
-        mController.onCreated()
         setContentView(mViewMvc.view)
     }
-
-    override fun onStart() {
-        super.onStart()
-        mController.onStart()
-    }
-
-    override fun onStop() {
-        super.onStop()
-        mController.onStop()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        mController.onDestroyed()
-    }
-
 
 }

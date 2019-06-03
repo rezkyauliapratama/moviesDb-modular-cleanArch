@@ -1,14 +1,2 @@
 apply from: "$rootDir/common-kotlin-library.gradle"
-
-dependencies {
-    //network
-    implementation Retrofit.retrofit
-    implementation Retrofit.moshiConverter
-    implementation Retrofit.adapterRxJava
-    implementation Retrofit.loggingInterceptor
-    implementation Json.moshiKotlin
-
-    implementation Reactivex.kotlin
-    implementation Reactivex.android
-
-}
+apply from: "$rootDir/common-core-library.gradle"

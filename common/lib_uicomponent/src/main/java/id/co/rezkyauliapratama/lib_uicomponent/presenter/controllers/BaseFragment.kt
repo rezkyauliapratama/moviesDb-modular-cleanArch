@@ -8,17 +8,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import id.co.rezkyauliapratama.lib_uicomponent.presenter.common.BaseViewMvcFactory
-import id.co.rezkyauliapratama.lib_uicomponent.presenter.viewmodels.BaseViewModel
 import id.co.rezkyauliapratama.lib_uicomponent.presenter.views.ViewMvc
+import javax.inject.Inject
 
 
-abstract class BaseFragment<MVCFACTORY : BaseViewMvcFactory, VIEWMODEL : BaseViewModel, CONTROLLER : BaseController<VIEWMVC, VIEWMODEL>, VIEWMVC : ViewMvc> :
+abstract class BaseFragment<MVCFACTORY : BaseViewMvcFactory, CONTROLLER : BaseController<VIEWMVC>, VIEWMVC : ViewMvc> :
     Fragment() {
 
-    abstract val mViewMvcFactory: MVCFACTORY
+    @Inject
+    lateinit var mViewModelFactory: ViewModelProvider.Factory
 
-    abstract val mController: CONTROLLER
+    @Inject
+    lateinit var mViewMvcFactory: MVCFACTORY
+
+    @Inject
+    lateinit var mController: CONTROLLER
 
     lateinit var mViewMvc: VIEWMVC
 
@@ -38,23 +44,4 @@ abstract class BaseFragment<MVCFACTORY : BaseViewMvcFactory, VIEWMODEL : BaseVie
         return mViewMvc.view
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        mController.onStart()
-    }
-
-    override fun onStart() {
-        super.onStart()
-        mController.onStart()
-    }
-
-    override fun onStop() {
-        super.onStop()
-        mController.onStop()
-    }
-
-    override fun onDetach() {
-        super.onDetach()
-        mController.onDestroyed()
-    }
 }

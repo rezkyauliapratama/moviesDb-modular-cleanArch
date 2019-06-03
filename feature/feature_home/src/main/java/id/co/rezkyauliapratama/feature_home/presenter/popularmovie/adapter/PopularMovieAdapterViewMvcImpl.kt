@@ -23,7 +23,7 @@ class PopularMovieAdapterViewMvcImpl (inflater: LayoutInflater, parent: ViewGrou
         view.tvTitle.text = popularMoveView.originalTitle
         view.tvScore.text = popularMoveView.popularity.toString()
 
-        view.ivPoster.loadImage("${BuildConfig.IMAGE_BASE_URL}${popularMoveView.posterPath}")
+        view.ivPoster.loadImage("${BuildConfig.IMAGE_BASE_URL}${popularMoveView.backdropPath}")
     }
 
 }

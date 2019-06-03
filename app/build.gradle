@@ -36,6 +36,7 @@ dependencies {
     api 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    implementation project(Modules.libCore)
     implementation project(Modules.libNavigation)
     implementation project(Modules.libPresenter)
     implementation project(Modules.libNetwork)
@@ -58,14 +59,14 @@ dependencies {
     implementation Reactivex.kotlin
     implementation Reactivex.android
 
-    //dependency injection
-    implementation Koin.core
-    implementation Koin.android
-    implementation Koin.androidScope
-    implementation Koin.androidViewModel
+    //Dagger2
+    implementation Dagger.dagger
+    kapt Dagger.daggerCompiler
 
     //unittest
     testImplementation TestLibs.junit
     androidTestImplementation TestLibs.testRunner
 
+    //Logger
+    implementation Log.timber
 }

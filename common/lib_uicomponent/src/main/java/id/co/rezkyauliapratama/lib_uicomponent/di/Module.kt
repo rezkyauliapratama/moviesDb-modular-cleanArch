@@ -1,6 +1,7 @@
 package id.co.rezkyauliapratama.lib_uicomponent.di
 
 import android.content.Context
+import androidx.fragment.app.FragmentActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
 import dagger.Module
@@ -11,13 +12,14 @@ import id.co.rezkyauliapratama.lib_uicomponent.domain.executors.ThreadExecutor
 import id.co.rezkyauliapratama.lib_uicomponent.presenter.UIThread
 
 @Module
-class PresenterModule(val context: Context) {
+class PresenterModule(private val activity: FragmentActivity) {
 
-    @ActivityContext
     @Provides
-    fun providesActivityContext(): Context {
-        return context
-    }
+    @ActivityContext
+    fun provideActivityContext(): Context = activity
+
+    @Provides
+    fun provideActivity(): FragmentActivity = activity
 
 }
 

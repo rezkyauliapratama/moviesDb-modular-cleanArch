@@ -35,13 +35,11 @@ fun getMoshi() : Moshi {
 }
 
 fun getRetrofit(okHttpClient: OkHttpClient, url: String, moshi: Moshi) : Retrofit {
-    val retrofit = Retrofit.Builder()
+    return Retrofit.Builder()
         .baseUrl(url)
         .client(okHttpClient)
         .addConverterFactory(MoshiConverterFactory.create(moshi))
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create()).build()
-
-    return retrofit
 }
 
 inline fun <reified T> services(retrofit: Retrofit): T {

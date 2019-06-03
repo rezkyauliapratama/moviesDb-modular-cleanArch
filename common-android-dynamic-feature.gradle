@@ -21,20 +21,18 @@ android {
 dependencies {
     implementation project(Modules.app)
 
-    //support
+    //supportx
     implementation Dependencies.kotlin
     implementation Support.lifeCycleExtensions
     implementation Arch.navigationFragment
     implementation Arch.navigationKtx
 
     //dependency injection
-    implementation Koin.core
-    implementation Koin.android
-    implementation Koin.androidScope
-    implementation Koin.androidViewModel
+    //Dagger2
+    implementation Dagger.dagger
+    kapt Dagger.daggerCompiler
 
     //json adapter
-    implementation Json.moshi
     implementation Json.moshiKotlin
     kapt Json.moshiKapt
 
@@ -43,7 +41,9 @@ dependencies {
     implementation Retrofit.moshiConverter
     implementation Retrofit.adapterRxJava
     implementation Retrofit.loggingInterceptor
+
     implementation Json.moshiKotlin
+    kapt Json.moshiKapt
 
     //reactivex
     implementation Reactivex.kotlin
@@ -52,4 +52,10 @@ dependencies {
     //image
     implementation Image.glide
     kapt Image.glideCompiler
+
+    //Logger
+    implementation Log.timber
+
+    //findbugs
+    implementation Annotation.findBugs
 }

@@ -23,6 +23,7 @@ fun MovieModel.mapToPopularMovie(): PopularMovieView =
         voteAverage = voteAverage,
         releaseDate = releaseDate,
         posterPath = posterPath,
+        backdropPath = backdropPath,
         popularity = popularity
     )
 

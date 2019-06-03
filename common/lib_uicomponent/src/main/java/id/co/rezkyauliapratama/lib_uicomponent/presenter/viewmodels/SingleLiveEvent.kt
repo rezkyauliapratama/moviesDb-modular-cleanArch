@@ -23,6 +23,7 @@ import java.util.concurrent.atomic.AtomicBoolean
  *  limitations under the License.
  */
 
+
 class SingleLiveEvent<T> : MutableLiveData<T>() {
 
     private val mPending = AtomicBoolean(false)
@@ -46,12 +47,6 @@ class SingleLiveEvent<T> : MutableLiveData<T>() {
     override fun setValue(t: T?) {
         mPending.set(true)
         super.setValue(t)
-    }
-
-    @MainThread
-    override fun postValue(t: T?) {
-        mPending.set(true)
-        super.postValue(t)
     }
 
     /**

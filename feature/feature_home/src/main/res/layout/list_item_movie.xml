@@ -6,15 +6,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/space_xs"
-        app:cardElevation="4dp"
-        app:cardCornerRadius="4dp"
+        app:cardElevation="@dimen/space_xs"
+        app:cardCornerRadius="@dimen/space_xs"
         android:background="@color/cardview_light_background"
 >
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/gradients_vertical_transparent_black"
+
     >
 
         <ImageView
@@ -26,6 +26,15 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"/>
+
+        <FrameLayout
+                android:id="@+id/backgroundLayout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/medium_height_iv"
+                app:layout_constraintTop_toTopOf="@id/ivPoster"
+                app:layout_constraintBottom_toBottomOf="@id/ivPoster"
+                android:background="@drawable/gradients_vertical_transparent_black"
+        />
 
         <TextView
                 android:id="@+id/tvTitle"

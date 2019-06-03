@@ -5,6 +5,7 @@ data class PopularMovieView (
     val originalTitle: String,
     val popularity: Double,
     val posterPath: String,
+    val backdropPath: String,
     val releaseDate: String,
     val voteAverage: Double,
     val voteCount: Int
