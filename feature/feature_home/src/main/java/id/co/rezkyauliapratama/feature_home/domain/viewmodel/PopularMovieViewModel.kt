@@ -3,16 +3,16 @@ package id.co.rezkyauliapratama.feature_home.domain.viewmodel
 import androidx.lifecycle.MutableLiveData
 import id.co.rezkyauliapratama.feature_home.domain.usecase.GetPopularMovie
 import id.co.rezkyauliapratama.feature_home.presenter.model.PopularMovieView
-import id.co.rezkyauliapratama.lib_uicomponent.presenter.common.Resource
-import id.co.rezkyauliapratama.lib_uicomponent.presenter.common.ResourceState
+import id.co.rezkyauliapratama.lib_uicomponent.presenter.common.*
 import id.co.rezkyauliapratama.lib_uicomponent.presenter.viewmodels.BaseViewModel
+import id.co.rezkyauliapratama.lib_uicomponent.presenter.viewmodels.SingleLiveEvent
 import javax.inject.Inject
 
 class PopularMovieViewModel @Inject constructor(
     private val getPopularMovie: GetPopularMovie
 ) : BaseViewModel() {
 
-    val popularMovieLiveData = MutableLiveData<Resource<List<PopularMovieView>>>()
+    val popularMovieLiveData = SingleLiveEvent<Resource<List<PopularMovieView>>>()
 
     private val movieList: MutableList<PopularMovieView> = mutableListOf()
     private var initialPage: Int = 0
@@ -21,6 +21,7 @@ class PopularMovieViewModel @Inject constructor(
     override fun loadPage(multipleTimes: Boolean?) {
         super.loadPage(multipleTimes)
         if (initialPage > 0) initialPage = 0
+        popularMovieLiveData.setLoading()
         fetchPopularMovies()
     }
 
@@ -39,18 +40,18 @@ class PopularMovieViewModel @Inject constructor(
     }
 
     private fun handlePopularMoviesError(throwable: Throwable) {
-        popularMovieLiveData.value = Resource(ResourceState.ERROR, throwable = throwable)
+        popularMovieLiveData.setError(throwable)
     }
 
     private fun handlePopularMovies(popularMovies: List<PopularMovieView>) {
         if (popularMovies.isNotEmpty()) {
-            popularMovieLiveData.value = Resource(ResourceState.SUCCESS, popularMovies)
+            popularMovieLiveData.setSuccess(popularMovies)
             movieList.addAll(
                 popularMovies
             )
 
         } else {
-            popularMovieLiveData.value = Resource(ResourceState.SUCCESS)
+            popularMovieLiveData.setEmpty()
             isDataAvailable = false
         }
     }

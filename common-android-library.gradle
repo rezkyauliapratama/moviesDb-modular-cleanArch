@@ -21,4 +21,7 @@ dependencies {
     //Dagger2
     implementation Dagger.dagger
     kapt Dagger.daggerCompiler
+
+    //Logger
+    implementation Log.timber
 }
