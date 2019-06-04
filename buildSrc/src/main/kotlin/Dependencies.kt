@@ -53,10 +53,19 @@ object Version {
     //test
     const val testRunnerVersion = "1.1.1"
     const val junitVersion = "4.12"
+
+    //findBugAnnotation
+    const val findBugsVersion = "3.0.2"
+
+    const val timber = "4.7.1"
 }
 
 object Dependencies {
     val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Version.kotlinVersion}"
+}
+
+object Log {
+    val timber = "com.jakewharton.timber:timber:${Version.timber}"
 }
 
 object Koin {
@@ -93,7 +102,6 @@ object Retrofit {
 }
 
 object Json {
-    val moshi = "com.squareup.moshi:moshi:${Version.moshiVersion}"
     val moshiKotlin = "com.squareup.moshi:moshi-kotlin:${Version.moshiVersion}"
     val moshiKapt = "com.squareup.moshi:moshi-kotlin-codegen:${Version.moshiVersion}"
 }
@@ -113,4 +121,8 @@ object Dagger {
 object TestLibs {
     val junit = "junit:junit:${Version.junitVersion}"
     val testRunner = "androidx.test:runner:${Version.testRunnerVersion}"
+}
+
+object Annotation {
+    val findBugs = "com.google.code.findbugs:jsr305:${Version.findBugsVersion}"
 }

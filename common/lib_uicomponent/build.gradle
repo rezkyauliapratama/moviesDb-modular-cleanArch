@@ -1,0 +1,12 @@
+apply from: "$rootDir/common-android-library.gradle"
+apply from: "$rootDir/common-core-library.gradle"
+
+dependencies {
+    implementation Support.materialComponent
+    implementation Support.constraintLayout
+    implementation Support.lifeCycleExtensions
+    implementation Support.appCompat
+
+    implementation Image.glide
+    kapt Image.glideCompiler
+}

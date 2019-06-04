@@ -1,40 +1,33 @@
 package id.co.rezkyauliapratama.feature_home.domain.viewmodel
 
+import androidx.lifecycle.MutableLiveData
 import id.co.rezkyauliapratama.feature_home.domain.usecase.GetPopularMovie
 import id.co.rezkyauliapratama.feature_home.presenter.model.PopularMovieView
-import id.co.rezkyauliapratama.lib_presenter.presenter.common.*
-import id.co.rezkyauliapratama.lib_presenter.presenter.viewmodels.BaseViewModelState
-import id.co.rezkyauliapratama.lib_presenter.presenter.viewmodels.SingleLiveEvent
+import id.co.rezkyauliapratama.lib_uicomponent.presenter.common.*
+import id.co.rezkyauliapratama.lib_uicomponent.presenter.viewmodels.BaseViewModel
+import id.co.rezkyauliapratama.lib_uicomponent.presenter.viewmodels.SingleLiveEvent
+import javax.inject.Inject
 
-
-class PopularMovieViewModel constructor(
+class PopularMovieViewModel @Inject constructor(
     private val getPopularMovie: GetPopularMovie
-) : BaseViewModelState<PopularMovieState>() {
+) : BaseViewModel() {
 
-    private val popularMovieLiveData = SingleLiveEvent<Resource<List<PopularMovieView>>>()
+    val popularMovieLiveData = SingleLiveEvent<Resource<List<PopularMovieView>>>()
 
     private val movieList: MutableList<PopularMovieView> = mutableListOf()
     private var initialPage: Int = 0
     private var isDataAvailable: Boolean = true
 
-    init {
-
-        stateLiveData.addLiveData(popularMovieLiveData) {
-            PopularMovieState.MovieListState(it)
-        }
-
-    }
-
     override fun loadPage(multipleTimes: Boolean?) {
         super.loadPage(multipleTimes)
         if (initialPage > 0) initialPage = 0
+        popularMovieLiveData.setLoading()
         fetchPopularMovies()
     }
 
     private fun fetchPopularMovies() {
         if (isDataAvailable) {
             initialPage++
-            popularMovieLiveData.setLoading()
 
             getPopularMovie
                 .execute(
@@ -46,17 +39,20 @@ class PopularMovieViewModel constructor(
         }
     }
 
-    private fun handlePopularMoviesError(throwable: Throwable) = popularMovieLiveData.setError(throwable)
+    private fun handlePopularMoviesError(throwable: Throwable) {
+        popularMovieLiveData.setError(throwable)
+    }
 
     private fun handlePopularMovies(popularMovies: List<PopularMovieView>) {
-        if (popularMovies.isNotEmpty()) popularMovieLiveData.setSuccess(popularMovies).also {
+        if (popularMovies.isNotEmpty()) {
+            popularMovieLiveData.setSuccess(popularMovies)
             movieList.addAll(
                 popularMovies
             )
-        } else popularMovieLiveData.setEmpty().also { isDataAvailable = false }
-    }
-}
 
-sealed class PopularMovieState {
-    data class MovieListState(val resources: Resource<List<PopularMovieView>>) : PopularMovieState()
+        } else {
+            popularMovieLiveData.setEmpty()
+            isDataAvailable = false
+        }
+    }
 }

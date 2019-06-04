@@ -3,6 +3,8 @@ apply plugin: 'kotlin-kapt'
 
 dependencies {
     implementation Dependencies.kotlin
-
-    implementation Koin.core
+    
+    //Dagger2
+    implementation Dagger.dagger
+    kapt Dagger.daggerCompiler
 }

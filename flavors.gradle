@@ -7,31 +7,35 @@ ext.flavorConfig = {
             dimension "environment"
             applicationIdSuffix ".mock"
             resValue "string", "app_name", "skeleton(MOCK)"
+            buildConfigField 'String', 'API_KEY', '"b77a9c9af1b4434dcbbacdde72879e7c"'
             buildConfigField 'String', 'API_BASE_URL', '"http://api.themoviedb.org/3/"'
-            buildConfigField 'String', 'IMAGE_BASE_URL', '"https://image.tmdb.org/t/p/"'
+            buildConfigField 'String', 'IMAGE_BASE_URL', '"https://image.tmdb.org/t/p/w500"'
         }
 
         development {
             dimension "environment"
             applicationIdSuffix ".dev"
             resValue "string", "app_name", "skeleton(DEV)"
+            buildConfigField 'String', 'API_KEY', '"b77a9c9af1b4434dcbbacdde72879e7c"'
             buildConfigField 'String', 'API_BASE_URL', '"http://api.themoviedb.org/3/"'
-            buildConfigField 'String', 'IMAGE_BASE_URL', '"https://image.tmdb.org/t/p/"'
+            buildConfigField 'String', 'IMAGE_BASE_URL', '"https://image.tmdb.org/t/p/w500"'
         }
 
         staging {
             dimension "environment"
             applicationIdSuffix ".stage"
             resValue "string", "app_name", "skeleton(STAGE)"
+            buildConfigField 'String', 'API_KEY', '"b77a9c9af1b4434dcbbacdde72879e7c"'
             buildConfigField 'String', 'API_BASE_URL', '"http://api.themoviedb.org/3/"'
-            buildConfigField 'String', 'IMAGE_BASE_URL', '"https://image.tmdb.org/t/p/"'
+            buildConfigField 'String', 'IMAGE_BASE_URL', '"https://image.tmdb.org/t/p/w500"'
         }
 
         production {
             dimension "environment"
             resValue "string", "app_name", "sekeleton"
+            buildConfigField 'String', 'API_KEY', '"b77a9c9af1b4434dcbbacdde72879e7c"'
             buildConfigField 'String', 'API_BASE_URL', '"http://api.themoviedb.org/3/"'
-            buildConfigField 'String', 'IMAGE_BASE_URL', '"https://image.tmdb.org/t/p/"'
+            buildConfigField 'String', 'IMAGE_BASE_URL', '"https://image.tmdb.org/t/p/w500"'
             // TODO: Fill with actual production API URL
 
         }

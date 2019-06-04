@@ -4,9 +4,9 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 dependencies {
-
-    implementation project(Modules.libPresenter)
+    implementation project(Modules.libCore)
     implementation project(Modules.libNetwork)
+    implementation project(Modules.libPresenter)
 
     implementation Support.materialComponent
     implementation Support.appCompat

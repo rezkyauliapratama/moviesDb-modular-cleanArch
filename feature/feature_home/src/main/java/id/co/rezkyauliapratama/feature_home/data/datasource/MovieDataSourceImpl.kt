@@ -9,8 +9,9 @@ import io.reactivex.Single
 class MovieDataSourceImpl(private val api: MoviesApi) : MovieRemoteDataSource {
 
     override fun getPopularMovies(apiKey: String, pageNumber: Int): Single<List<MovieModel>> =
-        api.getPopularMovies(apiKey, pageNumber).map {
-            it.moviesDto.mapToDomain()
-        }
+        api.getPopularMovies(apiKey, pageNumber)
+            .map {
+                it.moviesDto.mapToDomain()
+            }
 
 }

@@ -1,26 +1,42 @@
 package id.co.rezkyauliapratama.lib_network.di
 
+import com.squareup.moshi.Moshi
+import dagger.Module
+import dagger.Provides
 import id.co.rezkyauliapratama.lib_network.getHttpClientBuilder
 import id.co.rezkyauliapratama.lib_network.getMoshi
 import id.co.rezkyauliapratama.lib_network.getRetrofit
-import org.koin.core.module.Module
-import org.koin.core.qualifier.named
-import org.koin.dsl.module
+import okhttp3.Interceptor
+import okhttp3.OkHttpClient
+import retrofit2.Retrofit
+import javax.inject.Singleton
 
-val networkModule: Module = module {
 
-    //provide apiKey
-    factory(named(DI_API_KEY)) { "b77a9c9af1b4434dcbbacdde72879e7c" }
-    //provide moshi
-    factory { getMoshi() }
+@Module
+class NetworkModule(private val url: String, private val interceptors: ArrayList<Interceptor>) {
 
-    //provide okhttp client
-    single { getHttpClientBuilder(interceptors = get()) }
+    @Provides
+    fun provideMoshi() : Moshi{
+        return getMoshi()
+    }
 
-    //provide retrofit
-    single(named(DI_RETROFIT)) { (url: String) -> getRetrofit(okHttpClient = get(), moshi = get(), url = url) }
+    @Singleton
+    @Provides
+    fun provideRetrofit(okHttpClient: OkHttpClient, moshi: Moshi): Retrofit {
+        return getRetrofit(okHttpClient, url, moshi)
+    }
+
+
+    @Singleton
+    @Provides
+    fun provideOkHttpClient(
+    ): OkHttpClient {
+        val clientBuilder = getHttpClientBuilder(interceptors)
+
+        interceptors.map {
+            clientBuilder.addInterceptor(it)
+        }
+        return clientBuilder.build()
+    }
 
 }
-
-const val DI_API_KEY = "apiKey"
-const val DI_RETROFIT = "retrofit"

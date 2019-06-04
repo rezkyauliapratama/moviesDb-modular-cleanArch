@@ -1,1 +1,0 @@
-package id.co.rezkyauliapratama.multi_module_cleanarch_kotlin.di.component

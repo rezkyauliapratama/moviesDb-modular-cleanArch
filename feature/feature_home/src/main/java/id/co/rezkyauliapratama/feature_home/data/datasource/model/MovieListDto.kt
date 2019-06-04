@@ -1,43 +1,45 @@
 package id.co.rezkyauliapratama.feature_home.data.datasource.model
 
 import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import id.co.rezkyauliapratama.feature_home.domain.model.MovieModel
 
+@JsonClass(generateAdapter = true)
 class ListMoviesDto(
-    @field:Json(name = "page") var page: Int,
-    @field:Json(name = "results") val moviesDto: List<MovieDtoBean>,
-    @field:Json(name = "total_pages") val totalPages: Int,
-    @field:Json(name = "total_results") val totalResults: Int
+    @Json(name = "page") val page: Int,
+    @Json(name = "results") val moviesDto: List<MovieDtoBean>,
+    @Json(name = "total_pages") val totalPages: Int,
+    @Json(name = "total_results") val totalResults: Int
 )
 
 class MovieDtoBean(
-    @field:Json(name = "adult")
+    @Json(name = "adult")
     val adult: Boolean,
-    @field:Json(name = "backdrop_path")
+    @Json(name = "backdrop_path")
     val backdropPath: String,
-    @field:Json(name = "genre_ids")
+    @Json(name = "genre_ids")
     val genreIds: List<Int>,
-    @field:Json(name = "id")
+    @Json(name = "id")
     val id: Int,
-    @field:Json(name = "original_language")
+    @Json(name = "original_language")
     val originalLanguage: String,
-    @field:Json(name = "original_title")
+    @Json(name = "original_title")
     val originalTitle: String,
-    @field:Json(name = "overview")
+    @Json(name = "overview")
     val overview: String,
-    @field:Json(name = "popularity")
+    @Json(name = "popularity")
     val popularity: Double,
-    @field:Json(name = "poster_path")
+    @Json(name = "poster_path")
     val posterPath: String,
-    @field:Json(name = "release_date")
+    @Json(name = "release_date")
     val releaseDate: String,
-    @field:Json(name = "title")
+    @Json(name = "title")
     val title: String,
-    @field:Json(name = "video")
+    @Json(name = "video")
     val video: Boolean,
-    @field:Json(name = "vote_average")
+    @Json(name = "vote_average")
     val voteAverage: Double,
-    @field:Json(name = "vote_count")
+    @Json(name = "vote_count")
     val voteCount: Int
 )
 

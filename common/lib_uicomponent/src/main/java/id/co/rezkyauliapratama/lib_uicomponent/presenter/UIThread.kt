@@ -1,0 +1,11 @@
+package id.co.rezkyauliapratama.lib_uicomponent.presenter
+
+import id.co.rezkyauliapratama.lib_uicomponent.domain.executors.PostExecutionThread
+import io.reactivex.Scheduler
+import io.reactivex.android.schedulers.AndroidSchedulers
+
+class UIThread : PostExecutionThread {
+
+    override val scheduler: Scheduler
+        get() = AndroidSchedulers.mainThread()
+}
