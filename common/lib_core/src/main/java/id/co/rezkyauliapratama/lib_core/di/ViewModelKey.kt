@@ -1,4 +1,4 @@
-package id.co.rezkyauliapratama.lib_uicomponent.di.viewmodel
+package id.co.rezkyauliapratama.lib_core.di
 
 import androidx.lifecycle.ViewModel
 import dagger.MapKey

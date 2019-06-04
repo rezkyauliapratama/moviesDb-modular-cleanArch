@@ -1,4 +1,4 @@
-package id.co.rezkyauliapratama.lib_uicomponent.presenter.views
+package id.co.rezkyauliapratama.lib_core.presenter.views
 
 
 interface ObservableViewMvc<ListenerType> : ViewMvc {

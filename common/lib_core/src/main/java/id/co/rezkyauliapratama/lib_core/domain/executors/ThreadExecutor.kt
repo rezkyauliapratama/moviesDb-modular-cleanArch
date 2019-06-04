@@ -1,4 +1,4 @@
-package id.co.rezkyauliapratama.lib_uicomponent.domain.executors
+package id.co.rezkyauliapratama.lib_core.domain.executors
 
 import java.util.concurrent.Executor
 

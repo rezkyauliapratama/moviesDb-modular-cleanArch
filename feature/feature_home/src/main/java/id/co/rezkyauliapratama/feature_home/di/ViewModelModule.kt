@@ -5,14 +5,14 @@ import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
 import id.co.rezkyauliapratama.feature_home.domain.viewmodel.PopularMovieViewModel
-import id.co.rezkyauliapratama.lib_uicomponent.di.viewmodel.ViewModelKey
+import id.co.rezkyauliapratama.lib_core.di.ViewModelKey
 
 @Module
-abstract class ViewModelModule{
+abstract class ViewModelModule {
 
     @Binds
     @IntoMap
     @ViewModelKey(PopularMovieViewModel::class)
-    abstract fun bindPopularViewModel(viewModel: PopularMovieViewModel) : ViewModel
+    abstract fun bindPopularViewModel(viewModel: PopularMovieViewModel): ViewModel
 
 }

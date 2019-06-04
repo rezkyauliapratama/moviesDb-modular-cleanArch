@@ -1,7 +1,7 @@
-package id.co.rezkyauliapratama.lib_uicomponent.domain.common
+package id.co.rezkyauliapratama.lib_core.domain.common
 
-import id.co.rezkyauliapratama.lib_uicomponent.domain.executors.PostExecutionThread
-import id.co.rezkyauliapratama.lib_uicomponent.domain.executors.ThreadExecutor
+import id.co.rezkyauliapratama.lib_core.domain.executors.PostExecutionThread
+import id.co.rezkyauliapratama.lib_core.domain.executors.ThreadExecutor
 import io.reactivex.Single
 import io.reactivex.SingleSource
 import io.reactivex.SingleTransformer

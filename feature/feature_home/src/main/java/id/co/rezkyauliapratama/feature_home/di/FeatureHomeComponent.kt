@@ -5,8 +5,8 @@ import id.co.rezkyauliapratama.feature_home.presenter.HomeActivity
 import id.co.rezkyauliapratama.feature_home.presenter.popularmovie.PopularMovieFragment
 import id.co.rezkyauliapratama.lib_core.di.CoreComponent
 import id.co.rezkyauliapratama.lib_core.di.FeatureScope
-import id.co.rezkyauliapratama.lib_uicomponent.di.PresenterModule
-import id.co.rezkyauliapratama.lib_uicomponent.di.viewmodel.ViewModelFactoryModule
+import id.co.rezkyauliapratama.lib_core.di.PresenterModule
+import id.co.rezkyauliapratama.lib_core.di.ViewModelFactoryModule
 
 @Component(
     modules = [PresenterModule::class, MvcWrapperModule::class, RepositoryModule::class, DataSourcesModule::class, NetworkModule::class, ViewModelModule::class, ViewModelFactoryModule::class],

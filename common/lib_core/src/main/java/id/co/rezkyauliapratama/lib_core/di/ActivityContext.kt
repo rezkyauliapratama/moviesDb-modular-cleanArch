@@ -1,4 +1,4 @@
-package id.co.rezkyauliapratama.lib_uicomponent.di
+package id.co.rezkyauliapratama.lib_core.di
 
 import javax.inject.Qualifier
 

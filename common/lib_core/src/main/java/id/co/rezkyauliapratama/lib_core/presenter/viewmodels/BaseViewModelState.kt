@@ -1,4 +1,4 @@
-package id.co.rezkyauliapratama.lib_uicomponent.presenter.viewmodels
+package id.co.rezkyauliapratama.lib_core.presenter.viewmodels
 
 import androidx.lifecycle.MediatorLiveData
 

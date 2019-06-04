@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         startActivity(Actions.openHomeIntent(this))
-
+        finish()
     }
 
 

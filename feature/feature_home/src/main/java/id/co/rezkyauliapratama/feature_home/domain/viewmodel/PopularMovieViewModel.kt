@@ -1,11 +1,10 @@
 package id.co.rezkyauliapratama.feature_home.domain.viewmodel
 
-import androidx.lifecycle.MutableLiveData
 import id.co.rezkyauliapratama.feature_home.domain.usecase.GetPopularMovie
 import id.co.rezkyauliapratama.feature_home.presenter.model.PopularMovieView
-import id.co.rezkyauliapratama.lib_uicomponent.presenter.common.*
-import id.co.rezkyauliapratama.lib_uicomponent.presenter.viewmodels.BaseViewModel
-import id.co.rezkyauliapratama.lib_uicomponent.presenter.viewmodels.SingleLiveEvent
+import id.co.rezkyauliapratama.lib_core.presenter.common.*
+import id.co.rezkyauliapratama.lib_core.presenter.viewmodels.BaseViewModel
+import id.co.rezkyauliapratama.lib_core.presenter.viewmodels.SingleLiveEvent
 import javax.inject.Inject
 
 class PopularMovieViewModel @Inject constructor(

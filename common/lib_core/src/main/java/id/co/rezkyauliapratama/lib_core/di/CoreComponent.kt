@@ -3,11 +3,10 @@ package id.co.rezkyauliapratama.lib_core.di
 import android.app.Application
 import com.squareup.moshi.Moshi
 import dagger.Component
+import id.co.rezkyauliapratama.lib_core.domain.executors.PostExecutionThread
+import id.co.rezkyauliapratama.lib_core.domain.executors.ThreadExecutor
 import id.co.rezkyauliapratama.lib_network.common.NetworkErrorInterface
 import id.co.rezkyauliapratama.lib_network.di.NetworkModule
-import id.co.rezkyauliapratama.lib_uicomponent.di.SchedulerModule
-import id.co.rezkyauliapratama.lib_uicomponent.domain.executors.PostExecutionThread
-import id.co.rezkyauliapratama.lib_uicomponent.domain.executors.ThreadExecutor
 import retrofit2.Retrofit
 import javax.inject.Singleton
 

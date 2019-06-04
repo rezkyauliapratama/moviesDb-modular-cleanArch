@@ -1,8 +1,8 @@
-package id.co.rezkyauliapratama.lib_uicomponent.data.executors
+package id.co.rezkyauliapratama.lib_core.data.executors
 
 import android.os.Process
 import android.util.Log
-import id.co.rezkyauliapratama.lib_uicomponent.domain.executors.ThreadExecutor
+import id.co.rezkyauliapratama.lib_core.domain.executors.ThreadExecutor
 import java.util.concurrent.LinkedBlockingQueue
 import java.util.concurrent.ThreadFactory
 import java.util.concurrent.ThreadPoolExecutor
@@ -25,12 +25,13 @@ open class JobExecutor : ThreadExecutor {
     private val threadFactory: ThreadFactory
 
     init {
-        this.threadFactory = JobThreadFactory()
+        this.threadFactory = id.co.rezkyauliapratama.lib_core.data.executors.JobExecutor.JobThreadFactory()
         this.threadPoolExecutor = ThreadPoolExecutor(
             NUMBER_OF_CORES,
             NUMBER_OF_CORES * 2,
             KEEP_ALIVE_TIME.toLong(),
-            KEEP_ALIVE_TIME_UNIT, this.workQueue, this.threadFactory)
+            KEEP_ALIVE_TIME_UNIT, this.workQueue, this.threadFactory
+        )
     }
 
     override fun execute(runnable: Runnable?) {
@@ -45,7 +46,8 @@ open class JobExecutor : ThreadExecutor {
 
         override fun newThread(runnable: Runnable): Thread {
             val thread = Thread(runnable)
-            thread.name = "$THREAD_NAME${counter++}"
+            thread.name =
+                "${id.co.rezkyauliapratama.lib_core.data.executors.JobExecutor.JobThreadFactory.Companion.THREAD_NAME}${counter++}"
             thread.priority = Process.THREAD_PRIORITY_BACKGROUND
 
             // A exception handler is created to log the exception from threads
@@ -56,7 +58,8 @@ open class JobExecutor : ThreadExecutor {
                         th.name + " encountered an error: " + ex.message
                     )
                 }
-            return thread        }
+            return thread
+        }
 
         companion object {
             private val THREAD_NAME = "network_"

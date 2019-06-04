@@ -4,10 +4,10 @@ import androidx.lifecycle.LifecycleOwner
 import id.co.rezkyauliapratama.feature_home.domain.viewmodel.PopularMovieViewModel
 import id.co.rezkyauliapratama.feature_home.presenter.model.PopularMovieView
 import id.co.rezkyauliapratama.feature_home.presenter.popularmovie.view.PopularMovieViewMvc
-import id.co.rezkyauliapratama.lib_uicomponent.presenter.common.Resource
-import id.co.rezkyauliapratama.lib_uicomponent.presenter.common.ResourceState
-import id.co.rezkyauliapratama.lib_uicomponent.presenter.common.SafeObserver
-import id.co.rezkyauliapratama.lib_uicomponent.presenter.controllers.BaseViewModelController
+import id.co.rezkyauliapratama.lib_core.presenter.common.Resource
+import id.co.rezkyauliapratama.lib_core.presenter.common.ResourceState
+import id.co.rezkyauliapratama.lib_core.presenter.common.SafeObserver
+import id.co.rezkyauliapratama.lib_core.presenter.controllers.BaseViewModelController
 import timber.log.Timber
 
 class PopularMovieViewModelController : BaseViewModelController<PopularMovieViewMvc, PopularMovieViewModel>(),

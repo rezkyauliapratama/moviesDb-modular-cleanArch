@@ -1,6 +1,6 @@
-package id.co.rezkyauliapratama.lib_uicomponent.presenter
+package id.co.rezkyauliapratama.lib_core.presenter
 
-import id.co.rezkyauliapratama.lib_uicomponent.domain.executors.PostExecutionThread
+import id.co.rezkyauliapratama.lib_core.domain.executors.PostExecutionThread
 import io.reactivex.Scheduler
 import io.reactivex.android.schedulers.AndroidSchedulers
 

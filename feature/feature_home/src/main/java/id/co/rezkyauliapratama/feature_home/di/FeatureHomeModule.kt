@@ -13,7 +13,7 @@ import id.co.rezkyauliapratama.feature_home.presenter.common.ViewMvcFactory
 import id.co.rezkyauliapratama.feature_home.presenter.popularmovie.controller.PopularMovieViewModelController
 import id.co.rezkyauliapratama.lib_core.di.ApiKey
 import id.co.rezkyauliapratama.lib_network.services
-import id.co.rezkyauliapratama.lib_uicomponent.di.ActivityContext
+import id.co.rezkyauliapratama.lib_core.di.ActivityContext
 import retrofit2.Retrofit
 
 @Module
