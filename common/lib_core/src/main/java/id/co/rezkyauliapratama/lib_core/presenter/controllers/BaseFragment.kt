@@ -1,4 +1,4 @@
-package id.co.rezkyauliapratama.lib_uicomponent.presenter.controllers
+package id.co.rezkyauliapratama.lib_core.presenter.controllers
 
 import android.app.Activity
 import android.content.Context
@@ -9,8 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import id.co.rezkyauliapratama.lib_uicomponent.presenter.common.BaseViewMvcFactory
-import id.co.rezkyauliapratama.lib_uicomponent.presenter.views.ViewMvc
+import id.co.rezkyauliapratama.lib_core.presenter.common.BaseViewMvcFactory
+import id.co.rezkyauliapratama.lib_core.presenter.views.ViewMvc
 import javax.inject.Inject
 
 

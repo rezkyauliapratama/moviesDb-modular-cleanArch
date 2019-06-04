@@ -1,12 +1,10 @@
-package id.co.rezkyauliapratama.lib_uicomponent.presenter.controllers
+package id.co.rezkyauliapratama.lib_core.presenter.controllers
 
 import android.os.Bundle
 import androidx.annotation.CallSuper
-import androidx.lifecycle.ViewModelProvider
-import id.co.rezkyauliapratama.lib_uicomponent.presenter.common.BaseViewMvcFactory
-import id.co.rezkyauliapratama.lib_uicomponent.presenter.viewmodels.BaseViewModel
-import id.co.rezkyauliapratama.lib_uicomponent.presenter.views.ViewMvc
-import javax.inject.Inject
+import id.co.rezkyauliapratama.lib_core.presenter.common.BaseViewMvcFactory
+import id.co.rezkyauliapratama.lib_core.presenter.viewmodels.BaseViewModel
+import id.co.rezkyauliapratama.lib_core.presenter.views.ViewMvc
 
 abstract class BaseViewModelActivity<MVCFACTORY : BaseViewMvcFactory, VIEWMODEL : BaseViewModel, CONTROLLER : BaseViewModelController<VIEWMVC, VIEWMODEL>, VIEWMVC : ViewMvc>
     : BaseActivity<MVCFACTORY, CONTROLLER, VIEWMVC>() {

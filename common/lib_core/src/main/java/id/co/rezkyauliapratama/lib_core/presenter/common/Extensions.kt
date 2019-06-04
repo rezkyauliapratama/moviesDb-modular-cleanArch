@@ -1,4 +1,4 @@
-package id.co.rezkyauliapratama.lib_uicomponent.presenter.common
+package id.co.rezkyauliapratama.lib_core.presenter.common
 
 import android.view.LayoutInflater
 import android.view.View

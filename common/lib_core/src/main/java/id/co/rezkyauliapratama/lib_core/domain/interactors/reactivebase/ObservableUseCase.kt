@@ -1,11 +1,11 @@
-package id.co.rezkyauliapratama.lib_uicomponent.domain.interactors.reactivebase
+package id.co.rezkyauliapratama.lib_core.domain.interactors.reactivebase
 
-import id.co.rezkyauliapratama.lib_uicomponent.domain.common.SchedulerTransformer
+import id.co.rezkyauliapratama.lib_core.domain.common.SchedulerTransformer
 import io.reactivex.Observable
 import io.reactivex.ObservableTransformer
 
 
-abstract class ObservableUseCase<RESULT>(private val errorTransformer: ObservableTransformer<in RESULT,out RESULT>) {
+abstract class ObservableUseCase<RESULT>(private val errorTransformer: ObservableTransformer<in RESULT, out RESULT>) {
 
     abstract fun buildUseCaseObservable(data: Map<String, Any?> = emptyMap()): Observable<RESULT>
 

@@ -1,7 +1,6 @@
-package id.co.rezkyauliapratama.lib_uicomponent.presenter.common
+package id.co.rezkyauliapratama.lib_core.presenter.common
 
-import androidx.lifecycle.MediatorLiveData
-import id.co.rezkyauliapratama.lib_uicomponent.presenter.viewmodels.SingleLiveEvent
+import id.co.rezkyauliapratama.lib_core.presenter.viewmodels.SingleLiveEvent
 
 fun <T> SingleLiveEvent<Resource<T>>.setSuccess(data: T): SingleLiveEvent<Resource<T>> {
     postValue(

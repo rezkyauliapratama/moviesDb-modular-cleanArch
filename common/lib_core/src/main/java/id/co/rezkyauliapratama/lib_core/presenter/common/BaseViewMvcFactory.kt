@@ -1,3 +1,3 @@
-package id.co.rezkyauliapratama.lib_uicomponent.presenter.common
+package id.co.rezkyauliapratama.lib_core.presenter.common
 
 interface BaseViewMvcFactory
