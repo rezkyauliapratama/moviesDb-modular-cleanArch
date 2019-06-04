@@ -6,13 +6,13 @@ import id.co.rezkyauliapratama.feature_home.BuildConfig
 import id.co.rezkyauliapratama.feature_home.R
 import id.co.rezkyauliapratama.feature_home.presenter.model.PopularMovieView
 import id.co.rezkyauliapratama.feature_home.presenter.popularmovie.adapter.view.PopularMovieAdapterViewMvc
+import id.co.rezkyauliapratama.lib_core.presenter.views.BaseObservableViewMvc
 import id.co.rezkyauliapratama.lib_uicomponent.common.extension.loadImage
-import id.co.rezkyauliapratama.lib_uicomponent.presenter.views.BaseObservableViewMvc
 import kotlinx.android.synthetic.main.list_item_movie.view.*
 
 
-class PopularMovieAdapterViewMvcImpl (inflater: LayoutInflater, parent: ViewGroup?) :
-        BaseObservableViewMvc<PopularMovieAdapterViewMvc.Listener>(), PopularMovieAdapterViewMvc {
+class PopularMovieAdapterViewMvcImpl(inflater: LayoutInflater, parent: ViewGroup?) :
+    BaseObservableViewMvc<PopularMovieAdapterViewMvc.Listener>(), PopularMovieAdapterViewMvc {
 
 
     init {

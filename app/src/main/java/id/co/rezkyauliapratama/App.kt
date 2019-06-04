@@ -1,15 +1,10 @@
 package id.co.rezkyauliapratama
 
 import android.app.Application
-import id.co.rezkyauliapratama.lib_core.di.CoreComponent
-import id.co.rezkyauliapratama.lib_core.di.CoreComponentProvider
-import id.co.rezkyauliapratama.lib_core.di.CoreModule
-import id.co.rezkyauliapratama.lib_core.di.DaggerCoreComponent
+import id.co.rezkyauliapratama.lib_core.di.*
 import id.co.rezkyauliapratama.lib_network.di.NetworkModule
-import id.co.rezkyauliapratama.lib_uicomponent.di.SchedulerModule
 import id.co.rezkyauliapratama.multi_module_cleanarch_kotlin.BuildConfig
 import timber.log.Timber
-
 
 
 class App : Application(), CoreComponentProvider {
@@ -24,8 +19,9 @@ class App : Application(), CoreComponentProvider {
             Timber.plant(Timber.DebugTree())
         }
     }
+
     override fun provideCoreComponent(): CoreComponent {
-        if (!this::coreComponent.isInitialized){
+        if (!this::coreComponent.isInitialized) {
 
             coreComponent = DaggerCoreComponent.builder()
                 .coreModule(CoreModule(BuildConfig.API_KEY))

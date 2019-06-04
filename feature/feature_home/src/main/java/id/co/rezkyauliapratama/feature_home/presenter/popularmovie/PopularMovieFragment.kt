@@ -8,8 +8,8 @@ import id.co.rezkyauliapratama.feature_home.presenter.common.ViewMvcFactory
 import id.co.rezkyauliapratama.feature_home.presenter.popularmovie.controller.PopularMovieViewModelController
 import id.co.rezkyauliapratama.feature_home.presenter.popularmovie.view.PopularMovieViewMvc
 import id.co.rezkyauliapratama.lib_core.di.CoreInjectHelper
-import id.co.rezkyauliapratama.lib_uicomponent.di.PresenterModule
-import id.co.rezkyauliapratama.lib_uicomponent.presenter.controllers.BaseViewModelFragment
+import id.co.rezkyauliapratama.lib_core.presenter.controllers.BaseViewModelFragment
+import id.co.rezkyauliapratama.lib_core.di.PresenterModule
 
 class PopularMovieFragment :
     BaseViewModelFragment<ViewMvcFactory, PopularMovieViewModel, PopularMovieViewModelController, PopularMovieViewMvc>() {
