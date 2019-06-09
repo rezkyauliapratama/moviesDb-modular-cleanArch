@@ -5,14 +5,14 @@ import androidx.lifecycle.ViewModelProviders
 import id.co.rezkyauliapratama.feature_home.di.DaggerFeatureHomeComponent
 import id.co.rezkyauliapratama.feature_home.domain.viewmodel.PopularMovieViewModel
 import id.co.rezkyauliapratama.feature_home.presenter.common.ViewMvcFactory
-import id.co.rezkyauliapratama.feature_home.presenter.popularmovie.controller.PopularMovieViewModelController
+import id.co.rezkyauliapratama.feature_home.presenter.popularmovie.controller.PopularMovielController
 import id.co.rezkyauliapratama.feature_home.presenter.popularmovie.view.PopularMovieViewMvc
 import id.co.rezkyauliapratama.lib_core.di.CoreInjectHelper
-import id.co.rezkyauliapratama.lib_core.presenter.controllers.BaseViewModelFragment
 import id.co.rezkyauliapratama.lib_core.di.PresenterModule
+import id.co.rezkyauliapratama.lib_core.presenter.controllers.BaseViewModelFragment
 
 class PopularMovieFragment :
-    BaseViewModelFragment<ViewMvcFactory, PopularMovieViewModel, PopularMovieViewModelController, PopularMovieViewMvc>() {
+    BaseViewModelFragment<ViewMvcFactory, PopularMovieViewModel, PopularMovielController, PopularMovieViewMvc>() {
 
     override fun buildViewModel(): PopularMovieViewModel {
         return ViewModelProviders.of(this, mViewModelFactory)[PopularMovieViewModel::class.java]

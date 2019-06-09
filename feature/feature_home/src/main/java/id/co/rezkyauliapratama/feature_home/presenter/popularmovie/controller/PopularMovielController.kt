@@ -2,7 +2,7 @@ package id.co.rezkyauliapratama.feature_home.presenter.popularmovie.controller
 
 import androidx.lifecycle.LifecycleOwner
 import id.co.rezkyauliapratama.feature_home.domain.viewmodel.PopularMovieViewModel
-import id.co.rezkyauliapratama.feature_home.presenter.model.PopularMovieView
+import id.co.rezkyauliapratama.feature_home.presenter.model.PopularMovieResult
 import id.co.rezkyauliapratama.feature_home.presenter.popularmovie.view.PopularMovieViewMvc
 import id.co.rezkyauliapratama.lib_core.presenter.common.Resource
 import id.co.rezkyauliapratama.lib_core.presenter.common.ResourceState
@@ -10,7 +10,7 @@ import id.co.rezkyauliapratama.lib_core.presenter.common.SafeObserver
 import id.co.rezkyauliapratama.lib_core.presenter.controllers.BaseViewModelController
 import timber.log.Timber
 
-class PopularMovieViewModelController : BaseViewModelController<PopularMovieViewMvc, PopularMovieViewModel>(),
+class PopularMovielController : BaseViewModelController<PopularMovieViewMvc, PopularMovieViewModel>(),
     PopularMovieViewMvc.Listener {
 
     override fun bind(viewMvc: PopularMovieViewMvc, viewModel: PopularMovieViewModel, lifecycle: LifecycleOwner) {
@@ -37,7 +37,7 @@ class PopularMovieViewModelController : BaseViewModelController<PopularMovieView
     }
 
 
-    private fun handleMoviesResult(resources: Resource<List<PopularMovieView>>) {
+    private fun handleMoviesResult(resources: Resource<List<PopularMovieResult>>) {
         resources.apply {
             when (state) {
                 ResourceState.LOADING -> mViewMvc.showProgressBarPage()
@@ -45,10 +45,17 @@ class PopularMovieViewModelController : BaseViewModelController<PopularMovieView
                 ResourceState.ERROR -> mViewMvc.hideProgressBarPage()
             }
             handleMovieList(data)
+            handleError(throwable)
         }
     }
 
-    private fun handleMovieList(data: List<PopularMovieView>?) {
+    private fun handleError(throwable: Throwable?) {
+        if (throwable != null) {
+
+        }
+    }
+
+    private fun handleMovieList(data: List<PopularMovieResult>?) {
 
         if (data != null) {
             mViewMvc.bindPopularMovies(data)

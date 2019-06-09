@@ -3,18 +3,25 @@ package id.co.rezkyauliapratama.feature_home.presenter.popularmovie.adapter
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import id.co.rezkyauliapratama.feature_home.presenter.common.ViewMvcFactory
-import id.co.rezkyauliapratama.feature_home.presenter.model.PopularMovieView
+import id.co.rezkyauliapratama.feature_home.presenter.model.PopularMovieResult
+import id.co.rezkyauliapratama.feature_home.presenter.popularmovie.adapter.model.RowPopularMovieResult
 import id.co.rezkyauliapratama.feature_home.presenter.popularmovie.adapter.view.PopularMovieAdapterViewMvc
+import timber.log.Timber
 
-class PopularMoviesAdapter(private val viewMvcFactory: ViewMvcFactory) :
+class PopularMoviesAdapter(
+    private val viewMvcFactory: ViewMvcFactory
+) :
     RecyclerView.Adapter<PopularMoviesAdapter.ViewHolder>(), PopularMovieAdapterViewMvc.Listener {
 
-    private val mItems: ArrayList<PopularMovieView> = ArrayList()
+    private val rowPopularMovieFactory: RowPopularMovieResult.Factory = RowPopularMovieResult.Factory()
+    private val mItems: ArrayList<RowPopularMovieResult> = ArrayList()
 
-    fun bindMovies(popularMovies: List<PopularMovieView>){
+    fun bindMovies(popularMovies: List<PopularMovieResult>) {
         mItems.clear()
-        if (popularMovies.isNotEmpty()){
-            mItems.addAll(popularMovies)
+        if (popularMovies.isNotEmpty()) {
+            val fetchItems = popularMovies.map { rowPopularMovieFactory.create(it) }
+            Timber.e("fetchItems $fetchItems")
+            mItems.addAll(fetchItems)
         }
         notifyDataSetChanged()
     }

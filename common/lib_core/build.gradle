@@ -7,6 +7,7 @@ dependencies {
 
     implementation Support.lifeCycleExtensions
     implementation Support.appCompat
+    implementation Support.materialComponent
 
     implementation Image.glide
     kapt Image.glideCompiler

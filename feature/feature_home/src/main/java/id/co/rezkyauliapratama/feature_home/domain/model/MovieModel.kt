@@ -1,6 +1,6 @@
 package id.co.rezkyauliapratama.feature_home.domain.model
 
-import id.co.rezkyauliapratama.feature_home.presenter.model.PopularMovieView
+import id.co.rezkyauliapratama.feature_home.presenter.model.PopularMovieResult
 
 data class MovieModel(
     val backdropPath: String,
@@ -15,8 +15,8 @@ data class MovieModel(
     val voteCount: Int
 )
 
-fun MovieModel.mapToPopularMovie(): PopularMovieView =
-    PopularMovieView(
+fun MovieModel.mapToPopularMovie(): PopularMovieResult =
+    PopularMovieResult(
         genreIds = genreIds,
         originalTitle = originalTitle,
         voteCount = voteCount,
@@ -27,5 +27,5 @@ fun MovieModel.mapToPopularMovie(): PopularMovieView =
         popularity = popularity
     )
 
-fun List<MovieModel>.mapToPopularMovieList() : List<PopularMovieView> = map { it.mapToPopularMovie() }
+fun List<MovieModel>.mapToPopularMovieList() : List<PopularMovieResult> = map { it.mapToPopularMovie() }
 

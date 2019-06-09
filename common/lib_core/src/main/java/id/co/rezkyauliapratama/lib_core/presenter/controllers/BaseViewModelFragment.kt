@@ -16,7 +16,6 @@ abstract class BaseViewModelFragment<MVCFACTORY : BaseViewMvcFactory, VIEWMODEL 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         mController.onCreated()
-        viewModel.loadPage()
     }
 
     override fun onStart() {

@@ -34,7 +34,6 @@ abstract class BaseFragment<MVCFACTORY : BaseViewMvcFactory, CONTROLLER : BaseCo
     override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is Activity) {
-            Log.e("BaseFragment", "onattach")
             injectDI()
         }
     }

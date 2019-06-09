@@ -1,7 +1,7 @@
 package id.co.rezkyauliapratama.feature_home.domain.viewmodel
 
 import id.co.rezkyauliapratama.feature_home.domain.usecase.GetPopularMovie
-import id.co.rezkyauliapratama.feature_home.presenter.model.PopularMovieView
+import id.co.rezkyauliapratama.feature_home.presenter.model.PopularMovieResult
 import id.co.rezkyauliapratama.lib_core.presenter.common.*
 import id.co.rezkyauliapratama.lib_core.presenter.viewmodels.BaseViewModel
 import id.co.rezkyauliapratama.lib_core.presenter.viewmodels.SingleLiveEvent
@@ -11,9 +11,9 @@ class PopularMovieViewModel @Inject constructor(
     private val getPopularMovie: GetPopularMovie
 ) : BaseViewModel() {
 
-    val popularMovieLiveData = SingleLiveEvent<Resource<List<PopularMovieView>>>()
+    val popularMovieLiveData = SingleLiveEvent<Resource<List<PopularMovieResult>>>()
 
-    private val movieList: MutableList<PopularMovieView> = mutableListOf()
+    private val movieList: MutableList<PopularMovieResult> = mutableListOf()
     private var initialPage: Int = 0
     private var isDataAvailable: Boolean = true
 
@@ -42,7 +42,7 @@ class PopularMovieViewModel @Inject constructor(
         popularMovieLiveData.setError(throwable)
     }
 
-    private fun handlePopularMovies(popularMovies: List<PopularMovieView>) {
+    private fun handlePopularMovies(popularMovies: List<PopularMovieResult>) {
         if (popularMovies.isNotEmpty()) {
             popularMovieLiveData.setSuccess(popularMovies)
             movieList.addAll(

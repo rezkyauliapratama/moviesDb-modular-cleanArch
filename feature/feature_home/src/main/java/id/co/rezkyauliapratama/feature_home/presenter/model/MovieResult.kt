@@ -1,6 +1,6 @@
 package id.co.rezkyauliapratama.feature_home.presenter.model
 
-data class PopularMovieView (
+data class PopularMovieResult (
     val genreIds: List<Int>,
     val originalTitle: String,
     val popularity: Double,

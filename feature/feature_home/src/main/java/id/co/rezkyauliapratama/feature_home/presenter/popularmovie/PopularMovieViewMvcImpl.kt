@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.co.rezkyauliapratama.feature_home.R
 import id.co.rezkyauliapratama.feature_home.presenter.common.ViewMvcFactory
-import id.co.rezkyauliapratama.feature_home.presenter.model.PopularMovieView
+import id.co.rezkyauliapratama.feature_home.presenter.model.PopularMovieResult
 import id.co.rezkyauliapratama.feature_home.presenter.popularmovie.adapter.PopularMoviesAdapter
 import id.co.rezkyauliapratama.feature_home.presenter.popularmovie.view.PopularMovieViewMvc
 import id.co.rezkyauliapratama.lib_core.presenter.views.BaseObservableViewMvc
@@ -16,18 +16,17 @@ import java.lang.ref.WeakReference
 class PopularMovieViewMvcImpl(inflater: LayoutInflater, parent: ViewGroup?, viewMvcFactory: ViewMvcFactory) :
     BaseObservableViewMvc<PopularMovieViewMvc.Listener>(), PopularMovieViewMvc {
 
-    private var adapter: PopularMoviesAdapter
+
+    val adapter: PopularMoviesAdapter
 
     init {
         view = inflater.inflate(R.layout.fragment_movie_list, parent, false)
-
         adapter = PopularMoviesAdapter(viewMvcFactory)
-
         view.rvPopularMovies.layoutManager = LinearLayoutManager(view.context)
         view.rvPopularMovies.adapter = adapter
     }
 
-    override fun bindPopularMovies(movies: List<PopularMovieView>) {
+    override fun bindPopularMovies(movies: List<PopularMovieResult>) {
         adapter.bindMovies(movies)
     }
 
