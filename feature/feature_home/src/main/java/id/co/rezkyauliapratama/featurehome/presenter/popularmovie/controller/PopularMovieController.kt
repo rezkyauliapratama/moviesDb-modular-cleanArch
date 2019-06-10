@@ -10,7 +10,7 @@ import id.co.rezkyauliapratama.libcore.presenter.common.SafeObserver
 import id.co.rezkyauliapratama.libcore.presenter.controllers.BaseViewModelController
 import timber.log.Timber
 
-class PopularMovielController : BaseViewModelController<PopularMovieViewMvc, PopularMovieViewModel>(),
+class PopularMovieController : BaseViewModelController<PopularMovieViewMvc, PopularMovieViewModel>(),
     PopularMovieViewMvc.Listener {
 
     override fun bind(viewMvc: PopularMovieViewMvc, viewModel: PopularMovieViewModel, lifecycle: LifecycleOwner) {

@@ -6,7 +6,7 @@ import id.co.rezkyauliapratama.featurehome.di.DaggerFeatureHomeComponent
 import id.co.rezkyauliapratama.featurehome.domain.viewmodel.PopularMovieViewModel
 import id.co.rezkyauliapratama.featurehome.presenter.common.ViewMvcFactory
 import id.co.rezkyauliapratama.featurehome.presenter.popularmovie.adapter.PopularMoviesAdapter
-import id.co.rezkyauliapratama.featurehome.presenter.popularmovie.controller.PopularMovielController
+import id.co.rezkyauliapratama.featurehome.presenter.popularmovie.controller.PopularMovieController
 import id.co.rezkyauliapratama.featurehome.presenter.popularmovie.view.PopularMovieViewMvc
 import id.co.rezkyauliapratama.libcore.di.CoreInjectHelper
 import id.co.rezkyauliapratama.libcore.di.PresenterModule
@@ -14,7 +14,7 @@ import id.co.rezkyauliapratama.libcore.presenter.controllers.BaseViewModelFragme
 import javax.inject.Inject
 
 class PopularMovieFragment :
-    BaseViewModelFragment<ViewMvcFactory, PopularMovieViewModel, PopularMovielController, PopularMovieViewMvc>() {
+    BaseViewModelFragment<ViewMvcFactory, PopularMovieViewModel, PopularMovieController, PopularMovieViewMvc>() {
 
     override fun buildViewModel(): PopularMovieViewModel {
         return ViewModelProviders.of(this, mViewModelFactory)[PopularMovieViewModel::class.java]
@@ -31,7 +31,6 @@ class PopularMovieFragment :
 
     @Inject
     lateinit var popularMoviesAdapter: PopularMoviesAdapter
-
 
     override fun initView(container: ViewGroup?) {
         mViewMvc = mViewMvcFactory.getPopularMoviesViewMvc(container, popularMoviesAdapter)

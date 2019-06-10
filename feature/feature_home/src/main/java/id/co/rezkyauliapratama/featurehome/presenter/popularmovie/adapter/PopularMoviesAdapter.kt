@@ -4,17 +4,21 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import id.co.rezkyauliapratama.featurehome.presenter.common.ViewMvcFactory
 import id.co.rezkyauliapratama.featurehome.presenter.model.PopularMovieResult
+import id.co.rezkyauliapratama.featurehome.presenter.popularmovie.adapter.controller.PopularMovieAdapterController
 import id.co.rezkyauliapratama.featurehome.presenter.popularmovie.adapter.model.RowPopularMovieResult
 import id.co.rezkyauliapratama.featurehome.presenter.popularmovie.adapter.view.PopularMovieAdapterViewMvc
 import timber.log.Timber
 import javax.inject.Inject
 
 class PopularMoviesAdapter @Inject constructor(
-    private val viewMvcFactory: ViewMvcFactory
-) :
-    RecyclerView.Adapter<PopularMoviesAdapter.ViewHolder>(), PopularMovieAdapterViewMvc.Listener {
+    private val viewMvcFactory: ViewMvcFactory,
+    private val rowPopularMovieFactory: RowPopularMovieResult.Factory
+) : RecyclerView.Adapter<PopularMoviesAdapter.ViewHolder>(),
+    PopularMovieAdapterViewMvc.Listener {
 
-    private val rowPopularMovieFactory: RowPopularMovieResult.Factory = RowPopularMovieResult.Factory()
+    @Inject
+    lateinit var popularMovieAdapterController: PopularMovieAdapterController
+
     private val mItems: ArrayList<RowPopularMovieResult> = ArrayList()
 
     fun bindMovies(popularMovies: List<PopularMovieResult>) {
@@ -29,7 +33,6 @@ class PopularMoviesAdapter @Inject constructor(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val viewMvc = viewMvcFactory.getPopularMovieAdapterViewMvc(parent)
-        viewMvc.registerListener(this)
         return ViewHolder(viewMvc)
     }
 
@@ -38,7 +41,8 @@ class PopularMoviesAdapter @Inject constructor(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.mViewMvc.bindMovies(mItems[position], position)
+        popularMovieAdapterController.bindViewAndRegistenerListener(holder.mViewMvc)
+        popularMovieAdapterController.bindData(mItems[position], position)
     }
 
     override fun onMovieItemClicked(position: Int) {

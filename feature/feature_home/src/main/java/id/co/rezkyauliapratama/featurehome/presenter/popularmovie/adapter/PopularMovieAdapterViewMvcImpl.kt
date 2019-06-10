@@ -24,6 +24,11 @@ class PopularMovieAdapterViewMvcImpl(inflater: LayoutInflater, parent: ViewGroup
         view.tvTitle.text = popularMoveResult.getOriginalTitle()
         view.tvScore.text = popularMoveResult.getVoteAverage()
         view.ivPoster.loadImage(popularMoveResult.getThumnailImage())
+        view.setOnClickListener {
+            for (listener in listeners){
+                listener.onMovieItemClicked(position)
+            }
+        }
     }
 
 }
