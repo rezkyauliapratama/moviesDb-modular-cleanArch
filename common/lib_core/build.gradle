@@ -9,6 +9,8 @@ dependencies {
     implementation Support.appCompat
     implementation Support.materialComponent
 
+    implementation Arch.paging
+
     implementation Image.glide
     kapt Image.glideCompiler
 }

@@ -20,7 +20,7 @@ fun <T> SingleLiveEvent<Resource<T>>.setLoading() =
         )
     )
 
-fun <T> SingleLiveEvent<Resource<T>>.setEmpty() =
+fun <T> SingleLiveEvent<Resource<T>>.setSuccess() =
     postValue(
         Resource(
             ResourceState.SUCCESS,

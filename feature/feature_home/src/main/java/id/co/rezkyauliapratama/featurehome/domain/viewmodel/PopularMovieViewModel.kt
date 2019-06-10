@@ -6,7 +6,6 @@ import id.co.rezkyauliapratama.libcore.presenter.common.Resource
 import id.co.rezkyauliapratama.libcore.presenter.common.setError
 import id.co.rezkyauliapratama.libcore.presenter.common.setLoading
 import id.co.rezkyauliapratama.libcore.presenter.common.setSuccess
-import id.co.rezkyauliapratama.libcore.presenter.common.setEmpty
 import id.co.rezkyauliapratama.libcore.presenter.viewmodels.BaseViewModel
 import id.co.rezkyauliapratama.libcore.presenter.viewmodels.SingleLiveEvent
 import javax.inject.Inject
@@ -54,7 +53,7 @@ class PopularMovieViewModel @Inject constructor(
             )
 
         } else {
-            popularMovieLiveData.setEmpty()
+            popularMovieLiveData.setSuccess()
             isDataAvailable = false
         }
     }
