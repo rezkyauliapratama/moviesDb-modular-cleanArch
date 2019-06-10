@@ -1,10 +1,10 @@
-package id.co.rezkyauliapratama.lib_core.presenter.controllers
+package id.co.rezkyauliapratama.libcore.presenter.controllers
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import id.co.rezkyauliapratama.lib_core.presenter.common.BaseViewMvcFactory
-import id.co.rezkyauliapratama.lib_core.presenter.views.ViewMvc
+import id.co.rezkyauliapratama.libcore.presenter.common.BaseViewMvcFactory
+import id.co.rezkyauliapratama.libcore.presenter.views.ViewMvc
 import javax.inject.Inject
 
 abstract class BaseActivity<MVCFACTORY : BaseViewMvcFactory, CONTROLLER : BaseController<VIEWMVC>, VIEWMVC : ViewMvc> :

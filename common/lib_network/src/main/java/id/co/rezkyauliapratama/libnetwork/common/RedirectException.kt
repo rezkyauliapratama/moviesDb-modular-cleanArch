@@ -1,3 +1,3 @@
-package id.co.rezkyauliapratama.lib_network.common
+package id.co.rezkyauliapratama.libnetwork.common
 
 class RedirectException(val redirectUrl: String) : Exception()

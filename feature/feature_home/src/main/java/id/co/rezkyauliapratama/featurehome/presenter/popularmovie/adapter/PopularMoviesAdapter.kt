@@ -1,11 +1,11 @@
-package id.co.rezkyauliapratama.feature_home.presenter.popularmovie.adapter
+package id.co.rezkyauliapratama.featurehome.presenter.popularmovie.adapter
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import id.co.rezkyauliapratama.feature_home.presenter.common.ViewMvcFactory
-import id.co.rezkyauliapratama.feature_home.presenter.model.PopularMovieResult
-import id.co.rezkyauliapratama.feature_home.presenter.popularmovie.adapter.model.RowPopularMovieResult
-import id.co.rezkyauliapratama.feature_home.presenter.popularmovie.adapter.view.PopularMovieAdapterViewMvc
+import id.co.rezkyauliapratama.featurehome.presenter.common.ViewMvcFactory
+import id.co.rezkyauliapratama.featurehome.presenter.model.PopularMovieResult
+import id.co.rezkyauliapratama.featurehome.presenter.popularmovie.adapter.model.RowPopularMovieResult
+import id.co.rezkyauliapratama.featurehome.presenter.popularmovie.adapter.view.PopularMovieAdapterViewMvc
 import timber.log.Timber
 import javax.inject.Inject
 

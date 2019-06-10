@@ -1,6 +1,6 @@
-package id.co.rezkyauliapratama.lib_core.presenter.common
+package id.co.rezkyauliapratama.libcore.presenter.common
 
-import id.co.rezkyauliapratama.lib_core.presenter.viewmodels.SingleLiveEvent
+import id.co.rezkyauliapratama.libcore.presenter.viewmodels.SingleLiveEvent
 
 fun <T> SingleLiveEvent<Resource<T>>.setSuccess(data: T): SingleLiveEvent<Resource<T>> {
     postValue(

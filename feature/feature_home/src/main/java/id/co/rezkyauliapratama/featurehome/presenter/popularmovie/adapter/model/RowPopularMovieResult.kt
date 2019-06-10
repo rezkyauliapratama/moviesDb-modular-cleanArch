@@ -1,7 +1,7 @@
-package id.co.rezkyauliapratama.feature_home.presenter.popularmovie.adapter.model
+package id.co.rezkyauliapratama.featurehome.presenter.popularmovie.adapter.model
 
-import id.co.rezkyauliapratama.feature_home.BuildConfig
-import id.co.rezkyauliapratama.feature_home.presenter.model.PopularMovieResult
+import id.co.rezkyauliapratama.featurehome.BuildConfig
+import id.co.rezkyauliapratama.featurehome.presenter.model.PopularMovieResult
 import javax.inject.Inject
 
 class RowPopularMovieResult(private val popularMovieResult: PopularMovieResult) {

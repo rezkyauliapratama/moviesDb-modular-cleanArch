@@ -1,7 +1,7 @@
-package id.co.rezkyauliapratama.multi_module_cleanarch_kotlin.data.model
+package id.co.rezkyauliapratama.multimodulecleanarchkotlin.data.model
 
 import com.squareup.moshi.Json
-import id.co.rezkyauliapratama.multi_module_cleanarch_kotlin.domain.model.RefreshToken
+import id.co.rezkyauliapratama.multimodulecleanarchkotlin.domain.model.RefreshToken
 
 data class RefreshTokenDto(
     @field:Json(name = "expires_at")

@@ -1,9 +1,9 @@
-package id.co.rezkyauliapratama.feature_home.presenter.popularmovie.controller
+package id.co.rezkyauliapratama.featurehome.presenter.popularmovie.controller
 
 import androidx.lifecycle.LifecycleOwner
-import id.co.rezkyauliapratama.feature_home.domain.viewmodel.PopularMovieViewModel
-import id.co.rezkyauliapratama.feature_home.presenter.model.PopularMovieResult
-import id.co.rezkyauliapratama.feature_home.presenter.popularmovie.view.PopularMovieViewMvc
+import id.co.rezkyauliapratama.featurehome.domain.viewmodel.PopularMovieViewModel
+import id.co.rezkyauliapratama.featurehome.presenter.model.PopularMovieResult
+import id.co.rezkyauliapratama.featurehome.presenter.popularmovie.view.PopularMovieViewMvc
 import id.co.rezkyauliapratama.libcore.presenter.common.Resource
 import id.co.rezkyauliapratama.libcore.presenter.common.ResourceState
 import id.co.rezkyauliapratama.libcore.presenter.common.SafeObserver

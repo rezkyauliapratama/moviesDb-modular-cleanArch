@@ -1,12 +1,17 @@
-package id.co.rezkyauliapratama.lib_core.presenter.controllers
+package id.co.rezkyauliapratama.libcore.presenter.controllers
 
 import android.os.Bundle
-import id.co.rezkyauliapratama.lib_core.presenter.common.BaseViewMvcFactory
-import id.co.rezkyauliapratama.lib_core.presenter.viewmodels.BaseViewModel
-import id.co.rezkyauliapratama.lib_core.presenter.views.ViewMvc
+import id.co.rezkyauliapratama.libcore.presenter.common.BaseViewMvcFactory
+import id.co.rezkyauliapratama.libcore.presenter.viewmodels.BaseViewModel
+import id.co.rezkyauliapratama.libcore.presenter.views.ViewMvc
 
 
-abstract class BaseViewModelFragment<MVCFACTORY : BaseViewMvcFactory, VIEWMODEL : BaseViewModel, CONTROLLER : BaseViewModelController<VIEWMVC, VIEWMODEL>, VIEWMVC : ViewMvc>
+abstract class BaseViewModelFragment<
+        MVCFACTORY : BaseViewMvcFactory,
+        VIEWMODEL : BaseViewModel,
+        CONTROLLER : BaseViewModelController<VIEWMVC, VIEWMODEL>,
+        VIEWMVC : ViewMvc
+        >
     : BaseFragment<MVCFACTORY, CONTROLLER, VIEWMVC>() {
 
     protected val viewModel by lazy { buildViewModel() }

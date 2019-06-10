@@ -1,8 +1,8 @@
-package id.co.rezkyauliapratama.feature_home.data.datasource.model
+package id.co.rezkyauliapratama.featurehome.data.datasource.model
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
-import id.co.rezkyauliapratama.feature_home.domain.model.MovieModel
+import id.co.rezkyauliapratama.featurehome.domain.model.MovieModel
 
 @JsonClass(generateAdapter = true)
 class ListMoviesDto(

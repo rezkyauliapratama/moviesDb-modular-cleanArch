@@ -1,4 +1,4 @@
-package id.co.rezkyauliapratama.lib_core.domain.interactors.reactivebase
+package id.co.rezkyauliapratama.libcore.domain.interactors.reactivebase
 
 import io.reactivex.Single
 import io.reactivex.SingleTransformer

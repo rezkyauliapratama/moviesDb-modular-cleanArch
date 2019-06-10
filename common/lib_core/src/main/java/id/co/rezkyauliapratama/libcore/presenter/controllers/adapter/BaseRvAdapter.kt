@@ -1,4 +1,4 @@
-package id.co.rezkyauliapratama.lib_core.presenter.controllers.adapter
+package id.co.rezkyauliapratama.libcore.presenter.controllers.adapter
 
 import androidx.recyclerview.widget.RecyclerView
 

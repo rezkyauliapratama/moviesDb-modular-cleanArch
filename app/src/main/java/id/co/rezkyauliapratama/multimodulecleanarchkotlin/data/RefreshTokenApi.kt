@@ -1,4 +1,4 @@
-package id.co.rezkyauliapratama.multi_module_cleanarch_kotlin.data
+package id.co.rezkyauliapratama.multimodulecleanarchkotlin.data
 
 import io.reactivex.Single
 import retrofit2.http.GET
@@ -10,4 +10,5 @@ interface RefreshTokenApi {
     fun getPopularMovies(
         @Query("api_key") pageNum: Int?
     ): Single<RefreshTokenApi>
+
 }

@@ -1,4 +1,4 @@
-package id.co.rezkyauliapratama.multi_module_cleanarch_kotlin.domain.model
+package id.co.rezkyauliapratama.multimodulecleanarchkotlin.domain.model
 
 data class RefreshToken(
     val requestToken: String

@@ -1,4 +1,4 @@
-package id.co.rezkyauliapratama.lib_network.common
+package id.co.rezkyauliapratama.libnetwork.common
 
 interface NetworkErrorInterface {
     fun getMessage() : String

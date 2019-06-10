@@ -1,9 +1,9 @@
-package id.co.rezkyauliapratama.lib_core.presenter.controllers
+package id.co.rezkyauliapratama.libcore.presenter.controllers
 
 import androidx.annotation.CallSuper
 import androidx.lifecycle.LifecycleOwner
-import id.co.rezkyauliapratama.lib_core.presenter.viewmodels.BaseViewModel
-import id.co.rezkyauliapratama.lib_core.presenter.views.ViewMvc
+import id.co.rezkyauliapratama.libcore.presenter.viewmodels.BaseViewModel
+import id.co.rezkyauliapratama.libcore.presenter.views.ViewMvc
 
 abstract class BaseViewModelController<VIEWMVC : ViewMvc, VIEWMODEL : BaseViewModel> : BaseController<VIEWMVC>() {
 

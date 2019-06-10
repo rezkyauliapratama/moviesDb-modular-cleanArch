@@ -1,4 +1,4 @@
-package id.co.rezkyauliapratama.lib_network.common
+package id.co.rezkyauliapratama.libnetwork.common
 
 sealed class NetworkException(private val msg: String?) : Exception() {
 

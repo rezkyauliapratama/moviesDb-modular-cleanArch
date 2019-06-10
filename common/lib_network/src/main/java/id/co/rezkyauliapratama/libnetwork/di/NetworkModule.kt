@@ -1,11 +1,11 @@
-package id.co.rezkyauliapratama.lib_network.di
+package id.co.rezkyauliapratama.libnetwork.di
 
 import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
-import id.co.rezkyauliapratama.lib_network.getHttpClientBuilder
-import id.co.rezkyauliapratama.lib_network.getMoshi
-import id.co.rezkyauliapratama.lib_network.getRetrofit
+import id.co.rezkyauliapratama.libnetwork.getHttpClientBuilder
+import id.co.rezkyauliapratama.libnetwork.getMoshi
+import id.co.rezkyauliapratama.libnetwork.getRetrofit
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
