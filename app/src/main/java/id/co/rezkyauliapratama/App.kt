@@ -1,9 +1,13 @@
 package id.co.rezkyauliapratama
 
 import android.app.Application
-import id.co.rezkyauliapratama.lib_core.di.*
-import id.co.rezkyauliapratama.lib_network.di.NetworkModule
-import id.co.rezkyauliapratama.multi_module_cleanarch_kotlin.BuildConfig
+import id.co.rezkyauliapratama.libcore.di.CoreComponent
+import id.co.rezkyauliapratama.libcore.di.CoreComponentProvider
+import id.co.rezkyauliapratama.libcore.di.CoreModule
+import id.co.rezkyauliapratama.libcore.di.DaggerCoreComponent
+import id.co.rezkyauliapratama.libcore.di.SchedulersModule
+import id.co.rezkyauliapratama.libnetwork.di.NetworkModule
+import id.co.rezkyauliapratama.multimodulecleanarchkotlin.BuildConfig
 import timber.log.Timber
 
 
@@ -26,10 +30,9 @@ class App : Application(), CoreComponentProvider {
             coreComponent = DaggerCoreComponent.builder()
                 .coreModule(CoreModule(BuildConfig.API_KEY))
                 .networkModule(NetworkModule(BuildConfig.API_BASE_URL, arrayListOf()))
-                .schedulerModule(SchedulerModule())
+                .schedulerModule(SchedulersModule())
                 .build()
         }
         return coreComponent
     }
-
 }
