@@ -1,6 +1,7 @@
 package id.co.rezkyauliapratama.featurehome.presenter.popularmovie.controller
 
 import androidx.lifecycle.LifecycleOwner
+import androidx.paging.PagedList
 import id.co.rezkyauliapratama.featurehome.domain.viewmodel.PopularMovieViewModel
 import id.co.rezkyauliapratama.featurehome.presenter.model.PopularMovieResult
 import id.co.rezkyauliapratama.featurehome.presenter.popularmovie.view.PopularMovieViewMvc
@@ -21,7 +22,16 @@ class PopularMovieController : BaseViewModelController<PopularMovieViewMvc, Popu
 
     override fun initLiveDataObservers() {
         super.initLiveDataObservers()
-        mViewModel.popularMovieLiveData.observe(mLifecycle, SafeObserver(this::handleMoviesResult))
+        mViewModel.moviesList.observe(mLifecycle, SafeObserver(this::handleMoviesResult))
+        mViewModel.getState().observe(mLifecycle, SafeObserver(this::handleStateResult))
+    }
+
+    private fun handleStateResult(resourceState: Resource<PopularMovieResult>) {
+        mViewMvc.submitState(resourceState)
+    }
+
+    private fun handleMoviesResult(pagedList: PagedList<PopularMovieResult>) {
+        mViewMvc.submitList(pagedList)
     }
 
     override fun onStart() {
@@ -36,24 +46,6 @@ class PopularMovieController : BaseViewModelController<PopularMovieViewMvc, Popu
         mViewMvc.unregisterListener(this)
     }
 
-
-    private fun handleMoviesResult(resources: Resource<List<PopularMovieResult>>) {
-        resources.apply {
-            when (state) {
-                ResourceState.LOADING -> mViewMvc.showProgressBarPage()
-                ResourceState.SUCCESS -> mViewMvc.hideProgressBarPage()
-                ResourceState.ERROR -> mViewMvc.hideProgressBarPage()
-            }
-            handleMovieList(data)
-        }
-    }
-
-    private fun handleMovieList(data: List<PopularMovieResult>?) {
-
-        if (data != null) {
-            mViewMvc.bindPopularMovies(data)
-        }
-    }
 
     override fun onClickItemMovie() {
 

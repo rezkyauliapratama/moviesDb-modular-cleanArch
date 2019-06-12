@@ -9,10 +9,15 @@ import id.co.rezkyauliapratama.libcore.presenter.common.setLoading
 import id.co.rezkyauliapratama.libcore.presenter.common.setSuccess
 import id.co.rezkyauliapratama.libcore.presenter.viewmodels.SingleLiveEvent
 import io.reactivex.Single
+import io.reactivex.disposables.CompositeDisposable
 
 class PopularMoviePagingDataSource(
+    private val compositeDisposable: CompositeDisposable,
     private val getPopularMovie: GetPopularMovie
 ) : BasePageKeyedDataSource<Int, PopularMovieResult>() {
+
+
+    override fun compositeDisposable(): CompositeDisposable = compositeDisposable
 
     var resources: SingleLiveEvent<Resource<PopularMovieResult>> = SingleLiveEvent()
 

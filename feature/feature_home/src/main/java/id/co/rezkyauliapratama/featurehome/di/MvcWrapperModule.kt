@@ -23,7 +23,7 @@ class MvcWrapperModule {
     }
 
     @Provides
-    fun provideMovieAdapterController() : PopularMovieAdapterController {
+    fun provideMovieAdapterController(): PopularMovieAdapterController {
         return PopularMovieAdapterController()
     }
 }
