@@ -3,7 +3,8 @@ package id.co.rezkyauliapratama.featurehome.presenter.popularmovie
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagedList
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
+import com.google.android.material.snackbar.Snackbar
 import id.co.rezkyauliapratama.feature_home.R
 import id.co.rezkyauliapratama.featurehome.presenter.model.PopularMovieResult
 import id.co.rezkyauliapratama.featurehome.presenter.popularmovie.adapter.PopularMoviesAdapter
@@ -19,15 +20,28 @@ class PopularMovieViewMvcImpl(inflater: LayoutInflater, parent: ViewGroup?, priv
 
     init {
         view = inflater.inflate(R.layout.fragment_movie_list, parent, false)
-        view.rvPopularMovies.layoutManager = LinearLayoutManager(view.context)
+        val layoutManager: GridLayoutManager = GridLayoutManager(view.context, 2)
+        val lookup = object : GridLayoutManager.SpanSizeLookup() {
+            override fun getSpanSize(position: Int): Int {
+                return when (adapter.getItemViewType(position)) {
+                    PopularMoviesAdapter.DATA_VIEW_TYPE -> 1
+                    else -> 2
+                }
+            }
+        }
+
+        layoutManager.spanSizeLookup = lookup
+
+        view.rvPopularMovies.layoutManager = layoutManager
         view.rvPopularMovies.adapter = adapter
+
     }
 
     override fun submitList(pagedList: PagedList<PopularMovieResult>) {
         adapter.submitList(pagedList)
     }
 
-    override fun submitState(resourceState: Resource<PopularMovieResult>) {
+    override fun submitState(resourceState: Resource<List<PopularMovieResult>>) {
         adapter.setResourceState(resourceState.state)
     }
 
@@ -40,4 +54,7 @@ class PopularMovieViewMvcImpl(inflater: LayoutInflater, parent: ViewGroup?, priv
         ProgressDialogUtil.hideProgressDialog()
     }
 
+    override fun displayError(throwable: Throwable?) {
+        Snackbar.make(view, "There's an error on the API", Snackbar.LENGTH_LONG).show()
+    }
 }

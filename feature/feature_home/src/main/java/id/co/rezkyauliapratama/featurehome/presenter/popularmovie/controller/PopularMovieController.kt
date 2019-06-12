@@ -26,8 +26,21 @@ class PopularMovieController : BaseViewModelController<PopularMovieViewMvc, Popu
         mViewModel.getState().observe(mLifecycle, SafeObserver(this::handleStateResult))
     }
 
-    private fun handleStateResult(resourceState: Resource<PopularMovieResult>) {
+    private fun handleStateResult(resourceState: Resource<List<PopularMovieResult>>) {
         mViewMvc.submitState(resourceState)
+
+        when (resourceState.state) {
+            ResourceState.LOADING -> {
+                if (resourceState.data == null) {
+                    mViewMvc.showProgressBarPage()
+                }
+            }
+            ResourceState.SUCCESS -> mViewMvc.hideProgressBarPage()
+            ResourceState.ERROR -> {
+                Timber.e("handleStateResult error : ${resourceState.throwable}")
+                mViewMvc.displayError(resourceState.throwable)
+            }
+        }
     }
 
     private fun handleMoviesResult(pagedList: PagedList<PopularMovieResult>) {

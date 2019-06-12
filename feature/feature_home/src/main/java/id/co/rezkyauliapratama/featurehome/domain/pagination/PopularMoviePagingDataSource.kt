@@ -19,7 +19,7 @@ class PopularMoviePagingDataSource(
 
     override fun compositeDisposable(): CompositeDisposable = compositeDisposable
 
-    var resources: SingleLiveEvent<Resource<PopularMovieResult>> = SingleLiveEvent()
+    var resources: SingleLiveEvent<Resource<List<PopularMovieResult>>> = SingleLiveEvent()
 
     private val initialPage = 1
     private val adjacentPage = 1
@@ -29,7 +29,7 @@ class PopularMoviePagingDataSource(
 
         loadPopularMovies(initialPage).subscribe(
             { response ->
-                resources.setSuccess()
+                resources.setSuccess(response)
                 callback.onResult(response, null, initialPage + adjacentPage)
             },
             {
@@ -50,7 +50,7 @@ class PopularMoviePagingDataSource(
 
         loadPopularMovies(params.key).subscribe(
             { response ->
-                resources.setSuccess()
+                resources.setSuccess(response)
                 callback.onResult(response, params.key + adjacentPage)
             },
             {

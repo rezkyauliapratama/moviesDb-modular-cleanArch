@@ -35,7 +35,7 @@ class PopularMovieViewModel @Inject constructor(
         moviesList = LivePagedListBuilder<Int, PopularMovieResult>(popularMoviePagingDataSourceFactory, config).build()
     }
 
-    fun getState(): LiveData<Resource<PopularMovieResult>> = Transformations.switchMap(
+    fun getState(): LiveData<Resource<List<PopularMovieResult>>> = Transformations.switchMap(
         popularMoviePagingDataSourceFactory.pagingSourceLiveData,
         PopularMoviePagingDataSource::resources
     )

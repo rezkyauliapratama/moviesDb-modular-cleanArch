@@ -14,5 +14,6 @@ interface PopularMovieViewMvc : ObservableViewMvc<PopularMovieViewMvc.Listener> 
     fun showProgressBarPage()
     fun hideProgressBarPage()
     fun submitList(pagedList: PagedList<PopularMovieResult>)
-    fun submitState(resourceState: Resource<PopularMovieResult>)
+    fun submitState(resourceState: Resource<List<PopularMovieResult>>)
+    fun displayError(throwable: Throwable?)
 }

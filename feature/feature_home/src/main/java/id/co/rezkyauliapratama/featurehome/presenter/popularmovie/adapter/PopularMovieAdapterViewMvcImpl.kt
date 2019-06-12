@@ -2,6 +2,7 @@ package id.co.rezkyauliapratama.featurehome.presenter.popularmovie.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import com.squareup.moshi.Moshi
 import id.co.rezkyauliapratama.feature_home.R
 import id.co.rezkyauliapratama.featurehome.presenter.popularmovie.adapter.model.RowPopularMovieResult
 import id.co.rezkyauliapratama.featurehome.presenter.popularmovie.adapter.view.PopularMovieAdapterViewMvc
@@ -20,7 +21,7 @@ class PopularMovieAdapterViewMvcImpl(inflater: LayoutInflater, parent: ViewGroup
     }
 
     override fun bindMovies(popularMoveResult: RowPopularMovieResult, position: Int) {
-        Timber.e("popularMoveResult $popularMoveResult")
+        Timber.e("popularMoveResult ${Moshi.Builder().build().adapter(RowPopularMovieResult::class.java).toJson(popularMoveResult)}")
         view.tvTitle.text = popularMoveResult.getOriginalTitle()
         view.tvScore.text = popularMoveResult.getVoteAverage()
         view.ivPoster.loadImage(popularMoveResult.getThumnailImage())
