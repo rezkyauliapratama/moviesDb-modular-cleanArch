@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">lib_presenter</string>
+    <string name="footer_message">No more data</string>
 </resources>

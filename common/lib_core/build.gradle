@@ -2,11 +2,13 @@ apply from: "$rootDir/common-android-library.gradle"
 apply from: "$rootDir/common-core-library.gradle"
 
 dependencies {
-    implementation project(Modules.libPresenter)
     implementation project(Modules.libNetwork)
 
-    implementation Support.lifeCycleExtensions
+    api Support.lifeCycleExtensions
     implementation Support.appCompat
+    implementation Support.materialComponent
+
+    implementation Arch.paging
 
     implementation Image.glide
     kapt Image.glideCompiler

@@ -49,6 +49,7 @@ object Version {
     const val lifecycleVersion = "2.0.0"
     const val materialComponentVersion = "1.0.0"
     const val legacySupportVersion = "1.0.0"
+    const val pagingVersion = "2.1.0-rc01"
 
     //test
     const val testRunnerVersion = "1.1.1"
@@ -92,6 +93,7 @@ object Image{
 object Arch {
     val navigationFragment = "android.arch.navigation:navigation-fragment-ktx:${Version.navigationVersion}"
     val navigationKtx = "android.arch.navigation:navigation-ui-ktx:${Version.navigationVersion}"
+    val paging = "androidx.paging:paging-runtime-ktx:${Version.pagingVersion}"
 }
 
 object Retrofit {

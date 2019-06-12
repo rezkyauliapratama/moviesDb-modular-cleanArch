@@ -17,11 +17,4 @@ android {
 dependencies {
     implementation Dependencies.kotlin
 
-    //dependency injection
-    //Dagger2
-    implementation Dagger.dagger
-    kapt Dagger.daggerCompiler
-
-    //Logger
-    implementation Log.timber
 }

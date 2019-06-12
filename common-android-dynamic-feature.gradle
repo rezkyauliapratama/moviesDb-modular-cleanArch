@@ -27,35 +27,10 @@ dependencies {
     implementation Arch.navigationFragment
     implementation Arch.navigationKtx
 
-    //dependency injection
-    //Dagger2
-    implementation Dagger.dagger
-    kapt Dagger.daggerCompiler
-
-    //json adapter
-    implementation Json.moshiKotlin
-    kapt Json.moshiKapt
-
-    //network
-    implementation Retrofit.retrofit
-    implementation Retrofit.moshiConverter
-    implementation Retrofit.adapterRxJava
-    implementation Retrofit.loggingInterceptor
-
-    implementation Json.moshiKotlin
-    kapt Json.moshiKapt
-
-    //reactivex
-    implementation Reactivex.kotlin
-    implementation Reactivex.android
-
     //image
     implementation Image.glide
     kapt Image.glideCompiler
 
-    //Logger
-    implementation Log.timber
+    kapt Dagger.daggerCompiler
 
-    //findbugs
-    implementation Annotation.findBugs
 }

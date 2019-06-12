@@ -8,6 +8,7 @@
                                                    android:orientation="vertical">
 
     <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/pbFooter"
             style="?android:attr/progressBarStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -15,9 +16,26 @@
             android:indeterminateDrawable="@drawable/custom_progressbar"
             android:indeterminateTint="#002592"
             android:indeterminateTintMode="src_atop"
+            android:layout_marginTop="@dimen/space_s"
+            android:layout_marginBottom="@dimen/space_s"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:targetApi="lollipop" />
+
+    <TextView
+            android:id="@+id/tvFooterMessage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="There's no more data available"
+            android:visibility="gone"
+    />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

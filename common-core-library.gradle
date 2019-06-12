@@ -1,14 +1,24 @@
 dependencies {
     //network
-    implementation Retrofit.retrofit
-    implementation Retrofit.moshiConverter
-    implementation Retrofit.adapterRxJava
-    implementation Retrofit.loggingInterceptor
+    api Retrofit.retrofit
+    api Retrofit.moshiConverter
+    api Retrofit.adapterRxJava
+    api Retrofit.loggingInterceptor
 
-    implementation Json.moshiKotlin
+    api Json.moshiKotlin
     kapt Json.moshiKapt
 
-    implementation Reactivex.kotlin
-    implementation Reactivex.android
+    api Reactivex.kotlin
+    api Reactivex.android
 
+    //dependency injection
+    //Dagger2
+    api Dagger.dagger
+    kapt Dagger.daggerCompiler
+
+    //Logger
+    api Log.timber
+
+    //findbugs
+    api Annotation.findBugs
 }
