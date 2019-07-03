@@ -22,7 +22,7 @@ abstract class BaseViewModel : ViewModel() {
         isFirst = false
     }
 
-    private val compositeDisposable = CompositeDisposable()
+    protected val compositeDisposable = CompositeDisposable()
 
     protected fun Disposable.track() {
         compositeDisposable.add(this)

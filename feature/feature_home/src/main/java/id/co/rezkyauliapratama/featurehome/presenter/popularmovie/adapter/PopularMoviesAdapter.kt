@@ -11,6 +11,7 @@ import id.co.rezkyauliapratama.featurehome.presenter.popularmovie.adapter.contro
 import id.co.rezkyauliapratama.featurehome.presenter.popularmovie.adapter.model.RowPopularMovieResult
 import id.co.rezkyauliapratama.featurehome.presenter.popularmovie.adapter.view.PopularMovieAdapterViewMvc
 import id.co.rezkyauliapratama.libcore.presenter.common.ResourceState
+import id.co.rezkyauliapratama.libuicomponent.adapter.LoaderAdapterViewMvc
 import javax.inject.Inject
 
 class PopularMoviesAdapter @Inject constructor(
@@ -90,5 +91,5 @@ class PopularMoviesAdapter @Inject constructor(
 
 class PopularMovieViewHolder(val mViewMvc: PopularMovieAdapterViewMvc) : RecyclerView.ViewHolder(mViewMvc.view)
 
-class LoaderViewHolder(val mViewMvc: id.co.rezkyauliapratama.libuicomponent.adapter.LoaderAdapterViewMvc) :
+class LoaderViewHolder(val mViewMvc: LoaderAdapterViewMvc) :
     RecyclerView.ViewHolder(mViewMvc.view)

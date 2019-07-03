@@ -12,12 +12,9 @@ import io.reactivex.Single
 import io.reactivex.disposables.CompositeDisposable
 
 class PopularMoviePagingDataSource(
-    private val compositeDisposable: CompositeDisposable,
+    compositeDisposable: CompositeDisposable,
     private val getPopularMovie: GetPopularMovie
-) : BasePageKeyedDataSource<Int, PopularMovieResult>() {
-
-
-    override fun compositeDisposable(): CompositeDisposable = compositeDisposable
+) : BasePageKeyedDataSource<Int, PopularMovieResult>(compositeDisposable) {
 
     var resources: SingleLiveEvent<Resource<List<PopularMovieResult>>> = SingleLiveEvent()
 
@@ -26,6 +23,7 @@ class PopularMoviePagingDataSource(
 
     override fun loadInitial(params: LoadInitialParams<Int>, callback: LoadInitialCallback<Int, PopularMovieResult>) {
         resources.setLoading()
+
 
         loadPopularMovies(initialPage).subscribe(
             { response ->
