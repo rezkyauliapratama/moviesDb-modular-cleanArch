@@ -6,7 +6,6 @@ apply plugin: 'kotlin-android-extensions'
 dependencies {
     implementation project(Modules.libCore)
     implementation project(Modules.libPresenter)
-    implementation project(Modules.libNetwork)
 
     implementation Support.materialComponent
     implementation Support.appCompat

@@ -2,7 +2,6 @@ apply from: "$rootDir/common-android-library.gradle"
 apply from: "$rootDir/common-core-library.gradle"
 
 dependencies {
-    implementation project(Modules.libNetwork)
 
     api Support.lifeCycleExtensions
     implementation Support.appCompat

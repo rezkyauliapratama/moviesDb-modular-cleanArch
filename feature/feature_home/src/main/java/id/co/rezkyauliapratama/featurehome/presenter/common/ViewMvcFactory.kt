@@ -2,6 +2,8 @@ package id.co.rezkyauliapratama.featurehome.presenter.common
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import id.co.rezkyauliapratama.featurehome.presenter.detailpopularmovie.DetailPopularMovieViewMvcImpl
+import id.co.rezkyauliapratama.featurehome.presenter.detailpopularmovie.view.DetailPopularMovieViewMvc
 import id.co.rezkyauliapratama.featurehome.presenter.popularmovie.PopularMovieViewMvcImpl
 import id.co.rezkyauliapratama.featurehome.presenter.popularmovie.adapter.PopularMovieAdapterViewMvcImpl
 import id.co.rezkyauliapratama.featurehome.presenter.popularmovie.adapter.PopularMoviesAdapter
@@ -22,8 +24,9 @@ class ViewMvcFactory(
         return PopularMovieAdapterViewMvcImpl(mLayoutInflater, parent)
     }
 
-    fun getLoaderAdapterViewMvc(parent: ViewGroup?): id.co.rezkyauliapratama.libuicomponent.adapter.LoaderAdapterViewMvc {
-        return LoaderAdapterViewMvcImpl(mLayoutInflater, parent)
+    fun getDetailPopularMoviewViewMvc(parent: ViewGroup?): DetailPopularMovieViewMvc {
+        return DetailPopularMovieViewMvcImpl(mLayoutInflater, parent)
     }
+
 
 }

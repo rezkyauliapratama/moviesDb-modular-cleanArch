@@ -1,12 +1,14 @@
 package id.co.rezkyauliapratama.featurehome.presenter.model
 
-data class PopularMovieResult (
-    val genreIds: List<Int>,
-    val originalTitle: String,
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
+data class PopularMovieResult(
+    val id: Long,
+    val title: String,
     val popularity: Double,
-    val posterPath: String,
-    val backdropPath: String,
+    val posterPath: Int,
     val releaseDate: String,
-    val voteAverage: Double,
-    val voteCount: Int
-)
+    val overview: String
+) : Parcelable

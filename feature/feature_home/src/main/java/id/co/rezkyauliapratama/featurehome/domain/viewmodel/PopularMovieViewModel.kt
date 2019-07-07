@@ -1,44 +1,32 @@
 package id.co.rezkyauliapratama.featurehome.domain.viewmodel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.Transformations
-import androidx.paging.LivePagedListBuilder
-import androidx.paging.PagedList
-import id.co.rezkyauliapratama.featurehome.domain.pagination.PopularMoviePagingDataSource
-import id.co.rezkyauliapratama.featurehome.domain.pagination.PopularMoviePagingDataSourceFactory
+import id.co.rezkyauliapratama.libcore.presenter.common.Resource
 import id.co.rezkyauliapratama.featurehome.domain.usecase.GetPopularMovie
 import id.co.rezkyauliapratama.featurehome.presenter.model.PopularMovieResult
-import id.co.rezkyauliapratama.libcore.presenter.common.Resource
+import id.co.rezkyauliapratama.libcore.presenter.common.setError
+import id.co.rezkyauliapratama.libcore.presenter.common.setLoading
+import id.co.rezkyauliapratama.libcore.presenter.common.setSuccess
 import id.co.rezkyauliapratama.libcore.presenter.viewmodels.BaseViewModel
+import id.co.rezkyauliapratama.libcore.presenter.viewmodels.SingleLiveEvent
 import javax.inject.Inject
 
-class  PopularMovieViewModel @Inject constructor(
-    getPopularMovie: GetPopularMovie
+class PopularMovieViewModel @Inject constructor(
+    val getPopularMovie: GetPopularMovie
 ) : BaseViewModel() {
 
-    val moviesList: LiveData<PagedList<PopularMovieResult>>
+    val moviesList: SingleLiveEvent<Resource<List<PopularMovieResult>>> = SingleLiveEvent()
 
-    private val popularMoviePagingDataSourceFactory: PopularMoviePagingDataSourceFactory =
-        PopularMoviePagingDataSourceFactory(compositeDisposable, getPopularMovie)
-
-    private val pageSize: Int = 5
-
-    init {
-        val config = PagedList.Config.Builder()
-            .setPageSize(pageSize)
-            .setInitialLoadSizeHint(pageSize * 2)
-            .setEnablePlaceholders(false)
-            .build()
-
-        moviesList = LivePagedListBuilder<Int, PopularMovieResult>(popularMoviePagingDataSourceFactory, config).build()
+    override fun loadPage(multipleTimes: Boolean?) {
+        super.loadPage(multipleTimes)
+        moviesList.setLoading()
+        getPopularMovie.execute().subscribe(
+            {
+                moviesList.setSuccess(it)
+            },
+            {
+                moviesList.setError(it)
+            }
+        ).track()
     }
 
-    fun getState(): LiveData<Resource<List<PopularMovieResult>>> = Transformations.switchMap(
-        popularMoviePagingDataSourceFactory.pagingSourceLiveData,
-        PopularMoviePagingDataSource::resources
-    )
-
-    fun listIsEmpty(): Boolean {
-        return moviesList.value?.isEmpty() ?: true
-    }
 }

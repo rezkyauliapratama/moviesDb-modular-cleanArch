@@ -1,25 +1,34 @@
 package id.co.rezkyauliapratama.featurehome.presenter.popularmovie.adapter.controller
 
-import id.co.rezkyauliapratama.featurehome.presenter.popularmovie.adapter.model.RowPopularMovieResult
+import android.os.Bundle
+import androidx.navigation.Navigation
+import id.co.rezkyauliapratama.feature_home.R
+import id.co.rezkyauliapratama.featurehome.presenter.model.PopularMovieResult
 import id.co.rezkyauliapratama.featurehome.presenter.popularmovie.adapter.view.PopularMovieAdapterViewMvc
 import id.co.rezkyauliapratama.libcore.presenter.controllers.adapter.BaseAdapterController
-import timber.log.Timber
 
 class PopularMovieAdapterController
-    : BaseAdapterController<PopularMovieAdapterViewMvc, RowPopularMovieResult>(),
+    : BaseAdapterController<PopularMovieAdapterViewMvc, List<PopularMovieResult>>(),
     PopularMovieAdapterViewMvc.Listener {
 
-    override fun bind(viewMvc: PopularMovieAdapterViewMvc, itemData: RowPopularMovieResult?, position: Int) {
+    val itemData: ArrayList<PopularMovieResult> = arrayListOf()
+
+    override fun bind(viewMvc: PopularMovieAdapterViewMvc, itemData: List<PopularMovieResult>?, position: Int) {
         mViewMvc = viewMvc
         mViewMvc.registerListener(this)
 
-        if (itemData != null)
-            mViewMvc.bindMovies(itemData, position)
+        if (itemData != null) {
+            mViewMvc.bindMovies(itemData[position], position)
+            this.itemData.addAll(itemData)
+        }
     }
 
-
     override fun onMovieItemClicked(position: Int) {
-        Timber.e("onMovieItemClicked $position")
+        val bundle = Bundle()
+        bundle.putParcelable("DataResult", itemData[position])
+        Navigation.findNavController(mViewMvc.view)
+            .navigate(R.id.action_popularMovieFragment_to_detailMovieFragment, bundle)
+
     }
 
 }

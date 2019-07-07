@@ -6,7 +6,6 @@ import id.co.rezkyauliapratama.libcore.di.CoreComponentProvider
 import id.co.rezkyauliapratama.libcore.di.CoreModule
 import id.co.rezkyauliapratama.libcore.di.DaggerCoreComponent
 import id.co.rezkyauliapratama.libcore.di.SchedulersModule
-import id.co.rezkyauliapratama.libnetwork.di.NetworkModule
 import id.co.rezkyauliapratama.multimodulecleanarchkotlin.BuildConfig
 import timber.log.Timber
 
@@ -29,7 +28,6 @@ class App : Application(), CoreComponentProvider {
 
             coreComponent = DaggerCoreComponent.builder()
                 .coreModule(CoreModule(BuildConfig.API_KEY))
-                .networkModule(NetworkModule(BuildConfig.API_BASE_URL, arrayListOf()))
                 .schedulerModule(SchedulersModule())
                 .build()
         }

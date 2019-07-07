@@ -39,7 +39,6 @@ dependencies {
     implementation project(Modules.libCore)
     implementation project(Modules.libNavigation)
     implementation project(Modules.libPresenter)
-    implementation project(Modules.libNetwork)
 
     //support
     implementation Dependencies.kotlin

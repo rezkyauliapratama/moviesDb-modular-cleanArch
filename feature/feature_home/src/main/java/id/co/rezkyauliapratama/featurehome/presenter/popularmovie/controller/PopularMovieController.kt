@@ -1,7 +1,7 @@
 package id.co.rezkyauliapratama.featurehome.presenter.popularmovie.controller
 
+import android.util.Log
 import androidx.lifecycle.LifecycleOwner
-import androidx.paging.PagedList
 import id.co.rezkyauliapratama.featurehome.domain.viewmodel.PopularMovieViewModel
 import id.co.rezkyauliapratama.featurehome.presenter.model.PopularMovieResult
 import id.co.rezkyauliapratama.featurehome.presenter.popularmovie.view.PopularMovieViewMvc
@@ -22,45 +22,35 @@ class PopularMovieController : BaseViewModelController<PopularMovieViewMvc, Popu
 
     override fun initLiveDataObservers() {
         super.initLiveDataObservers()
-        mViewModel.moviesList.observe(mLifecycle, SafeObserver(this::handleMoviesResult))
-        mViewModel.getState().observe(mLifecycle, SafeObserver(this::handleStateResult))
+        mViewModel.moviesList.observe(mLifecycle, SafeObserver(this::handleStateResult))
     }
 
-    private fun handleStateResult(resourceState: Resource<List<PopularMovieResult>>) {
-        mViewMvc.submitState(resourceState)
-
-        when (resourceState.state) {
+    private fun handleStateResult(resource: Resource<List<PopularMovieResult>>) {
+        when (resource.state) {
             ResourceState.LOADING -> {
-                if (resourceState.data == null) {
+                if (resource.data == null) {
                     mViewMvc.showProgressBarPage()
                 }
             }
             ResourceState.SUCCESS -> mViewMvc.hideProgressBarPage()
             ResourceState.ERROR -> {
-                Timber.e("handleStateResult error : ${resourceState.throwable}")
-                mViewMvc.displayError(resourceState.throwable)
+                mViewMvc.displayError(resource.throwable)
             }
+        }
+        resource.data?.apply {
+            mViewMvc.submitList(this)
         }
     }
 
-    private fun handleMoviesResult(pagedList: PagedList<PopularMovieResult>) {
-        mViewMvc.submitList(pagedList)
-    }
 
     override fun onStart() {
         super.onStart()
-        Timber.e("controller onstart")
         mViewMvc.registerListener(this)
     }
 
     override fun onStop() {
         super.onStop()
-        Timber.e("controller onstop")
         mViewMvc.unregisterListener(this)
     }
 
-
-    override fun onClickItemMovie() {
-
-    }
 }

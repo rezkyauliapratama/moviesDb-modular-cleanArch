@@ -16,6 +16,10 @@ android {
     }
 
     with flavorConfig
+
+    androidExtensions {
+        experimental = true
+    }
 }
 
 dependencies {

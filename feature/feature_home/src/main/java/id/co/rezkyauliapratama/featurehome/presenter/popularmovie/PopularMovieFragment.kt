@@ -37,4 +37,5 @@ class PopularMovieFragment :
         mController.bind(mViewMvc, viewModel, viewLifecycleOwner)
     }
 
+
 }

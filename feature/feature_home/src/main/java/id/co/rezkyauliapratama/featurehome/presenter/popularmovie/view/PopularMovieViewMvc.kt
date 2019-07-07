@@ -7,13 +7,10 @@ import id.co.rezkyauliapratama.libcore.presenter.views.ObservableViewMvc
 
 interface PopularMovieViewMvc : ObservableViewMvc<PopularMovieViewMvc.Listener> {
 
-    interface Listener {
-        fun onClickItemMovie()
-    }
+    interface Listener
 
     fun showProgressBarPage()
     fun hideProgressBarPage()
-    fun submitList(pagedList: PagedList<PopularMovieResult>)
-    fun submitState(resourceState: Resource<List<PopularMovieResult>>)
+    fun submitList(items: List<PopularMovieResult>)
     fun displayError(throwable: Throwable?)
 }

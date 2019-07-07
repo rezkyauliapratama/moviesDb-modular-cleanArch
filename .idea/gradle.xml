@@ -13,7 +13,6 @@
             <option value="$PROJECT_DIR$/common" />
             <option value="$PROJECT_DIR$/common/lib_core" />
             <option value="$PROJECT_DIR$/common/lib_navigation" />
-            <option value="$PROJECT_DIR$/common/lib_network" />
             <option value="$PROJECT_DIR$/common/lib_uicomponent" />
             <option value="$PROJECT_DIR$/feature" />
             <option value="$PROJECT_DIR$/feature/feature_home" />

@@ -3,28 +3,22 @@ package id.co.rezkyauliapratama.featurehome.domain.model
 import id.co.rezkyauliapratama.featurehome.presenter.model.PopularMovieResult
 
 data class MovieModel(
-    val backdropPath: String,
-    val genreIds: List<Int>,
-    val originalTitle: String,
+    val id: Long,
+    val title: String,
     val popularity: Double,
     val overview: String,
-    val posterPath: String,
-    val releaseDate: String,
-    val video: Boolean,
-    val voteAverage: Double,
-    val voteCount: Int
+    val posterPath: Int,
+    val releaseDate: String
 )
 
 fun MovieModel.mapToPopularMovie(): PopularMovieResult =
     PopularMovieResult(
-        genreIds = genreIds,
-        originalTitle = originalTitle,
-        voteCount = voteCount,
-        voteAverage = voteAverage,
+        id = id,
+        title = title,
         releaseDate = releaseDate,
         posterPath = posterPath,
-        backdropPath = backdropPath,
-        popularity = popularity
+        popularity = popularity,
+        overview = overview
     )
 
 fun List<MovieModel>.mapToPopularMovieList() : List<PopularMovieResult> = map { it.mapToPopularMovie() }

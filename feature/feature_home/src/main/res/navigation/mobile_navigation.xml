@@ -9,5 +9,14 @@
               android:name="id.co.rezkyauliapratama.featurehome.presenter.popularmovie.PopularMovieFragment"
               android:label="PopularMovieFragment"
               tools:layout="@layout/fragment_movie_list"
-    />
+    >
+        <action android:id="@+id/action_popularMovieFragment_to_detailMovieFragment"
+                app:destination="@id/detailMovieFragment"/>
+    </fragment>
+    <fragment android:id="@+id/detailMovieFragment"
+              android:name="id.co.rezkyauliapratama.featurehome.presenter.detailpopularmovie.DetailMovieFragment"
+              android:label="DetailMovieFragment">
+        <argument android:name="dataResult"
+                  app:argType="id.co.rezkyauliapratama.featurehome.presenter.model.PopularMovieResult"/>
+    </fragment>
 </navigation>
